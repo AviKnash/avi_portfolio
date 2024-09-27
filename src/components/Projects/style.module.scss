@@ -1,0 +1,37 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25vh;
+    color: white;
+    padding: 10%;
+}
+
+.projectsDescription {
+    display: flex;
+    height: 700px;
+    gap: 5%;
+    width: 100&;
+    justify-content: space-between;
+}
+
+.imageContainer {
+    position: relative;
+    height: 100%;
+    width: 40%;
+}
+
+.imageContainer img{
+    object-fit: cover;
+}
+
+.column {
+    width: 20%;
+    display: flex;
+    font-size: 1.5vw;
+}
+
+.column:last-of-type {
+    font-size: 1vw;
+    align-items: flex-end;
+}
+

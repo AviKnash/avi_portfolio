@@ -2,6 +2,7 @@
 import Hero from "@/components/Hero";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
+import Projects from "@/components/Projects";
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <Hero />
+      <Projects />
     </main>
   );
 }
