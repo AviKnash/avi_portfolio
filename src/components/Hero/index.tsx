@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import banner from "../../public/images/myself.jpeg";
+import banner from "../../public/images/myself.png";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";

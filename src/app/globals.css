@@ -2,4 +2,7 @@ body{
   margin: 0px;
   overflow: hidden; /* Hide scrollbars */
   cursor: wait;
+  background: url(".././public/images/noise.svg"),
+  linear-gradient(to bottom, #0d0d0c, black, black);
+  background-blend-mode: overlay;
 }

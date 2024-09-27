@@ -5,7 +5,11 @@
     overflow: hidden;
 
     img{
-      object-fit: cover;
+      object-fit: fill;
+      opacity: 0.9;  /* Slightly reduce opacity to blend with background */
+      mix-blend-mode: overlay;  /* This blend mode works well with dark backgrounds */
+      filter: brightness(0.8) contrast(1.1) grayscale(0.5);  /* Adjust image to match background tone */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  /* Add subtle shadow for depth */
     }
     
     .sliderContainer{
