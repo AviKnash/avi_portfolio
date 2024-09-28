@@ -49,7 +49,7 @@ const Hero = () => {
       animate="enter"
       className={styles.landing}
     >
-      <Image fill src={banner} alt="hero" />
+      {/* <Image fill src={banner} alt="hero" /> */}
       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>FreeLance Photographer</p>

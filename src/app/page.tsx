@@ -1,11 +1,16 @@
 'use client';
 import Hero from "@/components/Hero";
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
+import { Component, useEffect, useRef, useState } from "react";
 import Projects from "@/components/Projects";
+import { AnimatePresence } from "framer-motion";
+import Preloader from "@/components/Preloader"
+import Description from "@/components/Description"
+import StickyCursor from '@/components/StickyCursor';
+import Footer from '@/components/Footer';
+import Sliding from '@/components/Sliding';
 
-
-export default function Home() {
+export default function Home({}) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect( () => {
@@ -25,8 +30,16 @@ export default function Home() {
 
   return (
     <main className={styles.page}>
+       <AnimatePresence mode='wait'>
+        {isLoading && <Preloader />}
+      </AnimatePresence>
+      <Component />
+      <StickyCursor />
       <Hero />
+      <Description />
       <Projects />
+      <Sliding />
+      <Footer />
     </main>
   );
 }

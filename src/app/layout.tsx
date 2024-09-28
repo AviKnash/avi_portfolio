@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "../components/Header";
+import { RootRefProvider } from "@/context/StickyRef/refContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -10,6 +12,12 @@ const geistSans = localFont({
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+const montreal = localFont({
+  src: "./fonts/PPNeueMontreal-Medium.otf",
+  variable: "--font-montreal",
   weight: "100 900",
 });
 
@@ -25,8 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${montreal.variable}`}>
+        <RootRefProvider>
+          <Header />
+          {children}
+        </RootRefProvider>
       </body>
     </html>
   );
