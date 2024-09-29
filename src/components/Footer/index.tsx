@@ -1,12 +1,13 @@
+"use client"
 import styles from './style.module.scss';
 import Image from 'next/image';
 import Rounded from '../..//app/common/Button';
 import { useRef } from 'react';
-import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
+import { useScroll, motion, useTransform } from 'framer-motion';
 import Magnetic from '../..//app/common/Magnetic';
 import background from '../../public/images/myself.png'
 
-export default function index() {
+export default function Footer() {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -27,7 +28,7 @@ export default function index() {
                             src={background}
                             />
                         </div>
-                        <h2>Let's work</h2>
+                        <h2>Let&apos;s work</h2>
                     </span>
                     <h2>together</h2>
                     <motion.div style={{x}} className={styles.buttonContainer}>

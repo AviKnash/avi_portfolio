@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import banner from "../../public/images/myself.png";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
@@ -27,7 +25,7 @@ const Hero = () => {
       },
       x: "-500px",
     });
-    requestAnimationFrame(animate);
+    if (firstText.current && secondText.current) requestAnimationFrame(animate);
   }, []);
 
   //Create animation to move the text in the x axis
@@ -38,7 +36,7 @@ const Hero = () => {
     gsap.set(firstText.current, { xPercent: xPercent });
     gsap.set(secondText.current, { xPercent: xPercent });
 
-    requestAnimationFrame(animate);
+    if (firstText.current && secondText.current) requestAnimationFrame(animate);
     xPercent += 0.1 * direction;
   };
 

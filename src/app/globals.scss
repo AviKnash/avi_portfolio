@@ -1,0 +1,25 @@
+:root {
+  --page-background: #141516; 
+  --gradient-background: linear-gradient(to bottom, #0d0d0c, black, black);
+  --text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+body {
+  margin: 0px;
+  overflow: hidden; /* Hide scrollbars */
+  cursor: wait;
+  background: var(--gradient-background);
+  color: white;
+  font-family: var(--font-montreal);
+  color: #dddddd;
+  text-shadow: var(--text-shadow);
+  transition-property: opacity,background,transform,filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.page-transition {
+  opacity: 0;
+  background: var(--page-background);
+  transition: opacity 0.5s ease-in-out;
+}

@@ -1,9 +1,9 @@
 import styles from "./style.module.scss";
-import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { slide, scale } from "../../animation";
 import { SetStateAction } from "react";
 import Magnetic from "@/app/common/Magnetic";
+import TransitionLink from "@/app/common/TransitionLink";
 
 interface ILink {
   data: {
@@ -15,7 +15,7 @@ interface ILink {
   setSelectedIndicator: React.Dispatch<SetStateAction<any>>;
 }
 
-export default function Index({ data, isActive, setSelectedIndicator }: ILink) {
+export default function NavLink({ data, isActive, setSelectedIndicator }: ILink) {
   const { title, href, index } = data;
 
   return (
@@ -36,7 +36,7 @@ export default function Index({ data, isActive, setSelectedIndicator }: ILink) {
         animate={isActive ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
-        <Link href={href}>{title}</Link>
+        <TransitionLink href={href}>{title}</TransitionLink>
     </motion.div>
       </Magnetic>
   );

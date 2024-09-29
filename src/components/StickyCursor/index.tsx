@@ -4,13 +4,11 @@ import styles from "./style.module.scss";
 import {
   motion,
   useMotionValue,
-  useSpring,
-  transform,
-  animate,
+  useSpring
 } from "framer-motion";
-import { useRootRef } from "@/context/StickyRef/refContext";
+import { useRootRef } from "@/context/StickyRef/index";
 
-export default function index() {
+export default function StickyCursor() {
   const cursor = useRef(null);
   const stickyElement = useRootRef();
 //   console.log(JSON.stringify(stickyElement))

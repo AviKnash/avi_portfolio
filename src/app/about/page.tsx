@@ -1,32 +1,28 @@
 "use client";
+import React, { useLayoutEffect, useRef } from "react";
+import styles from "./style.module.scss";
 import Hero from "@/components/Hero";
-import styles from "./page.module.css";
-import { useEffect, useRef } from "react";
-import Projects from "@/components/Projects";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/Preloader";
-import Description from "@/components/Description";
-import StickyCursor from "@/components/StickyCursor";
-import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
 
-export default function Home() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { pageLoading,setPageLoading} = useApp();
+const About = () => {
+    const { pageLoading,setPageLoading} = useApp();
+  const scrollContainerRef = useRef<HTMLDivElement>(null); 
 
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const initializeLocomotiveScroll = async () => {
-      if (!scrollContainerRef.current) return;
+      if (!scrollContainerRef.current) return; 
 
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-
+      
       const locomotiveScroll = new LocomotiveScroll({
-        autoStart: true,
+        autoStart:true,
       });
 
       setTimeout(() => {
-        setPageLoading((prev) => ({ ...prev, home: false }));
+
+        setPageLoading((prev) => ({ ...prev, about: false }));
         document.body.style.cursor = "default";
         window.scrollTo(0, 0);
       }, 2000);
@@ -42,13 +38,11 @@ export default function Home() {
   return (
     <main ref={scrollContainerRef} className={styles.page}>
       <AnimatePresence mode="wait">
-        {pageLoading.home && <Preloader />}
+        {pageLoading.about && <Preloader route="About Me"/>}
       </AnimatePresence>
-      <StickyCursor />
       <Hero />
-      <Description />
-      <Projects />
-      <Sliding />
     </main>
   );
-}
+};
+
+export default About;

@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "./globals.scss";
 import Header from "../components/Header";
-import { RootRefProvider } from "@/context/StickyRef/refContext";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { RootRefProvider } from "@/context/StickyRef/index";
+import Footer from "@/components/Footer";
+import { AppProvider } from "@/context/Application";
 
 const montreal = localFont({
   src: "./fonts/PPNeueMontreal-Medium.otf",
@@ -33,11 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${montreal.variable}`}>
-        <RootRefProvider>
-          <Header />
-          {children}
-        </RootRefProvider>
+      <body className={`${montreal.variable}`}>
+        <AppProvider>
+          <RootRefProvider>
+            <Header />
+            {children}
+            <Footer />
+          </RootRefProvider>
+        </AppProvider>
       </body>
     </html>
   );

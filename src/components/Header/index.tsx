@@ -8,9 +8,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../app/common/Button";
 import Magnetic from "../../app/common/Magnetic";
-import { useRootRef } from "@/context/StickyRef/refContext";
+import { useRootRef } from "@/context/StickyRef/index";
+import TransitionLink from "@/app/common/TransitionLink";
 
-export default function index() {
+export default function Header() {
   const header = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
@@ -53,27 +54,33 @@ export default function index() {
         <div className={styles.logo}>
           <p className={styles.copyright}>©</p>
           <div className={styles.name}>
-            <p className={styles.codeBy}>Code by</p>
-            <p className={styles.dennis}>Dennis</p>
-            <p className={styles.snellenberg}>Snellenberg</p>
+            <TransitionLink href="/" className={styles.codeBy}>Code by</TransitionLink>
+            <TransitionLink href="/" className={styles.dennis}>Dennis</TransitionLink>
+            <TransitionLink href="/" className={styles.snellenberg}>Snellenberg</TransitionLink>
           </div>
         </div>
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <a>Work</a>
+              <TransitionLink className={styles.transitionLink} href="/work">
+                Work
+              </TransitionLink>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a>About</a>
+              <TransitionLink className={styles.transitionLink} href="/about">
+                About
+              </TransitionLink>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a>Contact</a>
+              <TransitionLink className={styles.transitionLink} href="/contact">
+                Contact
+              </TransitionLink>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
