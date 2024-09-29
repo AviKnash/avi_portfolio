@@ -1,20 +1,20 @@
 "use client";
-import Hero from "@/components/Hero";
-import styles from "./page.module.css";
-import { useEffect, useRef } from "react";
-import Projects from "@/components/Projects";
+import React, { useLayoutEffect, useRef } from "react";
+import styles from "./style.module.scss";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/Preloader";
-import Description from "@/components/Description";
-import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
+import Main from "./components/Main";
+import DescriptionL6 from "./components/Boxes";
+import Projects from "@/components/Projects";
 
-export default function Home() {
+const LinearSix = () => {
+  const { pageLoading, setPageLoading } = useApp();
+
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { pageLoading,setPageLoading} = useApp();
 
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const initializeLocomotiveScroll = async () => {
       if (!scrollContainerRef.current) return;
 
@@ -25,7 +25,7 @@ export default function Home() {
       });
 
       setTimeout(() => {
-        setPageLoading((prev) => ({ ...prev, home: false }));
+        setPageLoading((prev) => ({ ...prev, "linear-six": false }));
         document.body.style.cursor = "default";
         window.scrollTo(0, 0);
       }, 2000);
@@ -39,14 +39,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={scrollContainerRef} className={styles.page}>
+    <main ref={scrollContainerRef}>
       <AnimatePresence mode="wait">
-        {pageLoading.home && <Preloader />}
+        {pageLoading["linear-six"] && <Preloader route="Linear Six" />}
       </AnimatePresence>
-      <Hero />
-      <Description />
-      <Projects />
-      <Sliding />
+      <Main />
+        <DescriptionL6 />
+{/* <Projects /> */}
+
     </main>
   );
-}
+};
+
+export default LinearSix;

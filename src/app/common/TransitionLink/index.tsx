@@ -1,14 +1,20 @@
 import { useApp } from "@/context/Application";
 import Link, { LinkProps } from "next/link";
-import {  useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 interface ITransitionLink extends LinkProps {
   href: string;
   children: ReactNode;
   className?: string;
+  nested?: boolean;
 }
-const TransitionLink = ({ children, href, className }: ITransitionLink) => {
+const TransitionLink = ({
+  children,
+  href,
+  className,
+  nested = false,
+}: ITransitionLink) => {
   const router = useRouter();
   const { setPageLoading } = useApp();
 
@@ -27,7 +33,7 @@ const TransitionLink = ({ children, href, className }: ITransitionLink) => {
     const body = document.querySelector("body");
     body?.classList.add("page-transition");
 
-    await sleep(500);
+    await sleep(200);
 
     router.push(href);
 

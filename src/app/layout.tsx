@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import { RootRefProvider } from "@/context/StickyRef/index";
 import Footer from "@/components/Footer";
 import { AppProvider } from "@/context/Application";
+import ConditionalStickyCursor from "@/components/StickyCursor/ConditionalSticky";
 
 const montreal = localFont({
   src: "./fonts/PPNeueMontreal-Medium.otf",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <AppProvider>
           <RootRefProvider>
             <Header />
+            <ConditionalStickyCursor />
             {children}
             <Footer />
           </RootRefProvider>

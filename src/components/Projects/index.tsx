@@ -9,20 +9,24 @@ import Project from "./components/project";
 import cloud from "../../public/images/cloud-ops.svg";
 import proptech from "../../public/images/proptech.svg";
 import headphones from "../../public/images/headphones.svg";
+import TransitionLink from "@/app/common/TransitionLink";
 
 const projects = [
   {
-    title: "C2 Montreal",
+    title: "Linear Six",
+    route: '/linear-six',
     src: cloud,
     color: "#000000",
   },
   {
-    title: "Office Studio",
+    title: "Insighture",
+    route: '/insighture',
     src: proptech,
     color: "#8C8C8C",
   },
   {
-    title: "Locomotive",
+    title: "Zoral",
+    route: '/zoral',
     src: headphones,
     color: "#EFE8D3",
   },
@@ -120,6 +124,7 @@ const Projects = () => {
             <Project
               index={index}
               title={project.title}
+              route={project.route}
               manageModal={manageModal}
               key={index}
             />
@@ -155,20 +160,23 @@ const Projects = () => {
             })}
           </div>
         </motion.div>
+
         <motion.div
           ref={cursor}
           className={styles.cursor}
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
-        ></motion.div>
+          
+          ></motion.div>
         <motion.div
           ref={cursorLabel}
           className={styles.cursorLabel}
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
-        >
+          
+          >
           View
         </motion.div>
       </>

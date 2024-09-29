@@ -1,17 +1,25 @@
 "use client";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/all";
 import styles from "./style.module.scss";
 import { slideUp } from "./animation";
-import { motion } from "framer-motion";
+import { backOut, motion } from "framer-motion";
+import useMousePosition from "@/hooks/useMousePosition";
 
 const Hero = () => {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
+  const firstText2 = useRef(null);
+  const secondText2 = useRef(null);
+  const slider2 = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
   let xPercent = 0;
   let direction = -1;
+  const size = isHovered ? 1000 : 40;
+
+  const { x, y } = useMousePosition();
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -21,11 +29,29 @@ const Hero = () => {
         scrub: 0.25,
         start: 0,
         end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
+        onUpdate: (e) => (direction = e.direction * -0.5),
       },
       x: "-500px",
     });
-    if (firstText.current && secondText.current) requestAnimationFrame(animate);
+
+    gsap.to(slider2.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        scrub: 0.25,
+        start: 0,
+        end: window.innerHeight,
+        onUpdate: (e) => (direction = e.direction * -0.5),
+      },
+      x: "-500px",
+    });
+
+    if (
+      firstText.current &&
+      secondText.current &&
+      firstText2.current &&
+      secondText2.current
+    )
+      requestAnimationFrame(animate);
   }, []);
 
   //Create animation to move the text in the x axis
@@ -35,9 +61,17 @@ const Hero = () => {
 
     gsap.set(firstText.current, { xPercent: xPercent });
     gsap.set(secondText.current, { xPercent: xPercent });
+    gsap.set(firstText2.current, { xPercent: xPercent });
+    gsap.set(secondText2.current, { xPercent: xPercent });
 
-    if (firstText.current && secondText.current) requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
+    if (
+      firstText.current &&
+      secondText.current &&
+      secondText2.current &&
+      firstText.current
+    )
+      requestAnimationFrame(animate);
+    xPercent += 0.05 * direction;
   };
 
   return (
@@ -47,14 +81,39 @@ const Hero = () => {
       animate="enter"
       className={styles.landing}
     >
-      {/* <Image fill src={banner} alt="hero" /> */}
-      <div className={styles.sliderContainer}>
-        <div ref={slider} className={styles.slider}>
-          <p ref={firstText}>FreeLance Photographer</p>
-          <p ref={secondText}>FreeLance Photographer</p>
+      <motion.div
+        animate={{
+          WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+          WebkitMaskSize: `${size}px`,
+        }}
+        transition={{ type: "tween", ease: backOut }}
+        className={styles.mask}
+      >
+        <motion.div className={styles.sliderContainer}>
+          <div
+            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsHovered(true)}
+            ref={slider}
+            className={styles.slider}
+          >
+            <p style={{ color: "black" }} ref={firstText}>
+              I'm part software engineer. Part fooling around __
+            </p>
+            <p style={{ color: "black" }} ref={secondText}>
+              I'm part software engineer. Part fooling around __
+            </p>
+          </div>
+        </motion.div>
+      </motion.div>
+      <div className={styles.innerDiv}>
+        <div className={styles.sliderContainer}>
+          <div ref={slider2} className={styles.slider}>
+            <p ref={firstText2}>Welcome to my abode! I'm Avinash __</p>
+            <p ref={secondText2}>Welcome to my abode! I'm Avinash __</p>
+          </div>
         </div>
       </div>
-      <div data-scroll data-scroll-speed={0.1} className={styles.description}>
+      {/* <div data-scroll data-scroll-speed={0.1} className={styles.description}>
         <svg
           width="9"
           height="9"
@@ -69,7 +128,7 @@ const Hero = () => {
         </svg>
         <p>Freelance</p>
         <p>Designer & Developer</p>
-      </div>
+      </div> */}
     </motion.main>
   );
 };

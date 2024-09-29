@@ -1,38 +1,49 @@
-.project{
+.project {
+  @extend .transitionLink;
+  width: 100%;
+
+  .innerDiv {
+    border-top: 1px solid rgb(201, 201, 201);
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 100px 50px 100px;
-    border-top: 1px solid rgb(201, 201, 201);
     cursor: pointer;
     transition: all 0.2s;
+    padding: 50px 100px 50px 100px;
+  }
 
-    h2{
-        font-size: 60px;
-        margin: 0px;
-        font-weight: 400;
-        transition: all 0.4s;
+  h2 {
+    font-size: 60px;
+    margin: 0px;
+    font-weight: 400;
+    transition: all 0.4s;
+  }
+
+  p {
+    transition: all 0.4s;
+    font-weight: 300;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid rgb(201, 201, 201);
+  }
+
+  &:hover {
+    opacity: 0.5;
+
+    h2 {
+      transform: translateX(-10px);
     }
 
-    p{
-        transition: all 0.4s;
-        font-weight: 300;
+    p {
+      transform: translateX(10px);
     }
+  }
+}
 
-    &:last-of-type{
-        border-bottom: 1px solid rgb(201, 201, 201);
-    }
-
-    &:hover{
-        opacity: 0.5;
-
-        h2{
-            transform: translateX(-10px);
-        }
-
-        p{
-            transform: translateX(10px);
-        }
-    }
+.transitionLink {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }
