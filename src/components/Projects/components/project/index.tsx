@@ -1,30 +1,41 @@
 "use client";
-import React from "react";
+import React, { SetStateAction } from "react";
 import styles from "./style.module.scss";
-import TransitionLink from "@/app/common/TransitionLink";
 
 interface IProject {
   index: number;
   title: string;
   manageModal: (active: boolean, index: number, x: number, y: number) => void;
   route: string;
+  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  setActiveProjectIndex: React.Dispatch<SetStateAction<any>>;
 }
 
-export default function index({ index, title, manageModal, route }: IProject) {
+export default function Project({
+  index,
+  title,
+  manageModal,
+  onClick,
+  setActiveProjectIndex,
+}: IProject) {
+  const onMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    manageModal(false, index, e.clientX, e.clientY);
+    setActiveProjectIndex(null);
+  };
+
   return (
-    <TransitionLink className={styles.project} href={route}>
+    <div className={styles.project}>
       <div
+        onClick={onClick}
         onMouseEnter={(e) => {
           manageModal(true, index, e.clientX, e.clientY);
         }}
-        onMouseLeave={(e) => {
-          manageModal(false, index, e.clientX, e.clientY);
-        }}
+        onMouseLeave={onMouseLeave}
         className={styles.innerDiv}
       >
         <h2>{title}</h2>
         <p>Design & Development</p>
       </div>
-    </TransitionLink>
+    </div>
   );
 }

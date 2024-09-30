@@ -16,7 +16,22 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 100px;
+
+        .projectContainer {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+
+        .subItems {
+            margin-left: 100px;
+
+            li{
+                padding: 5px
+            }
+        }
+        }
     }
+    
     
     .modalContainer{
         height: 350px;

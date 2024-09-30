@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import CustomButton from "@/app/common/Button";
 import Project from "./components/project";
@@ -10,27 +10,48 @@ import cloud from "../../public/images/cloud-ops.svg";
 import proptech from "../../public/images/proptech.svg";
 import headphones from "../../public/images/headphones.svg";
 import TransitionLink from "@/app/common/TransitionLink";
+import { listVariants,opacity } from "./animations";
 
 const projects = [
   {
     title: "Linear Six",
-    route: '/linear-six',
+    route: "/linear-six",
     src: cloud,
     color: "#000000",
+    descriptionList: [
+      "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
+      "Leveraged AWS services to implement efficient hosting, CI/CD, log tracking, and data handling.",
+      "Engaged in Agile-style development using Scrum project management methodologies.",
+      "Implemented best practices in software development, including secure version management and comprehensive testing (unit, regression, and integration tests), ensuring maintainability and scalability.",
+    ],
   },
   {
     title: "Insighture",
-    route: '/insighture',
+    route: "/insighture",
     src: proptech,
     color: "#8C8C8C",
+    descriptionList: [
+      "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
+      "Leveraged AWS services to implement efficient hosting, CI/CD, log tracking, and data handling.",
+      "Engaged in Agile-style development using Scrum project management methodologies.",
+      "Implemented best practices in software development, including secure version management and comprehensive testing (unit, regression, and integration tests), ensuring maintainability and scalability.",
+    ],
   },
   {
     title: "Zoral",
-    route: '/zoral',
+    route: "/zoral",
     src: headphones,
     color: "#EFE8D3",
+    descriptionList: [
+      "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
+      "Leveraged AWS services to implement efficient hosting, CI/CD, log tracking, and data handling.",
+      "Engaged in Agile-style development using Scrum project management methodologies.",
+      "Implemented best practices in software development, including secure version management and comprehensive testing (unit, regression, and integration tests), ensuring maintainability and scalability.",
+    ],
   },
 ];
+
+const subItems = ["Sub Item 1", "Sub Item 2", "Sub Item 3"];
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -54,6 +75,9 @@ const Projects = () => {
   const modalContainer = useRef<HTMLDivElement | null>(null);
   const cursor = useRef<HTMLDivElement | null>(null);
   const cursorLabel = useRef<HTMLDivElement | null>(null);
+  const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(
+    null
+  );
 
   const xMoveContainer = useRef<((value: number) => void) | null>(null);
   const yMoveContainer = useRef<((value: number) => void) | null>(null);
@@ -92,6 +116,13 @@ const Projects = () => {
     });
   }, []);
 
+  const handleModalClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setActiveProjectIndex((prevIndex) => (prevIndex === index ? null : index));
+    manageModal(false, index, e.clientX, e.clientY);
+  };
+
   const moveItems = (x: number, y: number) => {
     xMoveContainer.current?.(x);
     yMoveContainer.current?.(y);
@@ -121,13 +152,35 @@ const Projects = () => {
       <div className={styles.body}>
         {projects.map((project, index) => {
           return (
-            <Project
-              index={index}
-              title={project.title}
-              route={project.route}
-              manageModal={manageModal}
-              key={index}
-            />
+            <div className={styles.projectContainer}>
+              <Project
+                onClick={handleModalClick}
+                setActiveProjectIndex={setActiveProjectIndex}
+                index={index}
+                title={project.title}
+                route={project.route}
+                manageModal={manageModal}
+                key={index}
+              />
+              <AnimatePresence mode="wait">
+
+              {activeProjectIndex === index && (
+                <motion.div
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={listVariants}
+                className={styles.subItems}
+                >
+                  <ul>
+                    {project.descriptionList.map((item, subIndex) => (
+                      <motion.li variants={opacity} initial="initial" animate="enter" exit="exit" key={subIndex}>{item}</motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+              </AnimatePresence>
+            </div>
           );
         })}
       </div>
@@ -154,7 +207,7 @@ const Projects = () => {
                   style={{ backgroundColor: color }}
                   key={`modal_${index}`}
                 >
-                  <Image src={src} width={300} height={0} alt="image" />
+                  {/* <Image src={src} width={300} height={0} alt="image" /> */}
                 </div>
               );
             })}
@@ -167,16 +220,14 @@ const Projects = () => {
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
-          
-          ></motion.div>
+        ></motion.div>
         <motion.div
           ref={cursorLabel}
           className={styles.cursorLabel}
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
-          
-          >
+        >
           View
         </motion.div>
       </>
