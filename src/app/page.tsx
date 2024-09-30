@@ -8,6 +8,7 @@ import Preloader from "@/components/Preloader";
 import Description from "@/components/Description";
 import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
+import Title from "@/components/Title";
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,10 @@ export default function Home() {
       </AnimatePresence>
       <Hero />
       <Description />
+      <Title title="Experience"/>
       <Projects />
+      <Title title="Projects"/>
+
       {/* <Sliding /> */}
     </main>
   );

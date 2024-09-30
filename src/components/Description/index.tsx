@@ -20,9 +20,9 @@ export default function Description() {
                 </p>
                 <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>The combination of my passion for design, code & interaction positions me in a unique place in the web design world.</motion.p>
                 <div data-scroll data-scroll-speed={0.1}>
-                    <CustomButton className={styles.button}>
+                    {/* <CustomButton className={styles.button}>
                         <p>About me</p>
-                    </CustomButton>
+                    </CustomButton> */}
                 </div>
             </div>
         </div>
