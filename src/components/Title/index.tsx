@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 import { slideUp } from "./animation";
+import Line from "../Line";
 
 interface ITitle {
   title: string;

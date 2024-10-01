@@ -1,0 +1,26 @@
+.techMain {
+  position: relative;
+  background-color: #000000;
+//   overflow: hidden;
+  width: 100%;
+  display: flex;
+  height: calc(100vh + 10rem);
+  z-index: 1;
+  .body {
+    width: 100%;
+    display: flex;
+    .circle {
+      position: absolute;
+      background-color: transparent;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      
+    //   overflow: hidden;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

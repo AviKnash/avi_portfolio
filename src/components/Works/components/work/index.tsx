@@ -2,8 +2,7 @@
 import React, { SetStateAction, useCallback } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import some from "@/public/images/linear-six.svg";
-import { motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 interface IProject {
   index: number;
@@ -15,6 +14,7 @@ interface IProject {
   setImageVisible: React.Dispatch<SetStateAction<any>>;
   imageVisible: number | null;
   activeProjectIndex: number | null;
+  image: string;
 }
 
 export default function Project({
@@ -25,6 +25,7 @@ export default function Project({
   setImageVisible,
   imageVisible,
   activeProjectIndex,
+  image
 }: IProject) {
   const onMouseLeave = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -57,14 +58,15 @@ export default function Project({
         onMouseLeave={onMouseLeave}
         className={styles.innerDiv}
       >
+
         <motion.div
           onMouseLeave={onMouseLeaveTitle}
           onMouseEnter={onMouseEnterTitle}
           className={styles.titleContainer}
           layout
-        >
-          <h1>{title}</h1>
-          <h2>Software Engineer</h2>
+          >
+          <motion.h1 layout>{title}</motion.h1>
+          <motion.h2 layout>Software Engineer</motion.h2>
         </motion.div>
 
         {imageVisible === index && (
@@ -84,7 +86,7 @@ export default function Project({
             >
             <div className={styles.innerImageContainer}>
               <Image
-                src={some}
+                src={image}
                 alt="work image"
                 layout="fill"
                 objectFit="contain"

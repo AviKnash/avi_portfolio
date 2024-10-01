@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Work from "./components/work";
 
 import { listVariants, opacity } from "./animations";
-import { projects } from "@/app/constants";
+import { experience } from "@/app/constants";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -104,12 +104,12 @@ const Projects = () => {
       onMouseMove={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className={styles.projects}
+      className={styles.works}
     >
       <div className={styles.body}>
-        {projects.map((project, index) => {
+        {experience.map((project, index) => {
           return (
-            <div className={styles.projectContainer}>
+            <div className={styles.workContainer}>
               <Work
                 onClick={handleModalClick}
                 setActiveProjectIndex={setActiveProjectIndex}
@@ -121,6 +121,7 @@ const Projects = () => {
                 setImageVisible={setImageVisible}
                 imageVisible={imageVisible}
                 activeProjectIndex={activeProjectIndex}
+                image={project.src}
               />
               <AnimatePresence mode="wait">
                 {activeProjectIndex === index && (

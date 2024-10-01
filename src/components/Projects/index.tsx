@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Project from "./components/project";
 
 import { listVariants, opacity } from "./animations";
-import { projects } from "@/app/constants";
+import { experience } from "@/app/constants";
 
 
 const scaleAnimation = {
@@ -106,7 +106,7 @@ const Projects = () => {
       className={styles.projects}
     >
       <div className={styles.body}>
-        {projects.map((project, index) => {
+        {experience.map((project, index) => {
           return (
             <div className={styles.projectContainer}>
               <Project
@@ -173,7 +173,7 @@ const Projects = () => {
             style={{ top: index * -100 + "%" }}
             className={styles.modalSlider}
           >
-            {projects.map((project, index) => {
+            {experience.map((project, index) => {
               const { src, color } = project;
               return (
                 <div

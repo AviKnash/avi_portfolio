@@ -10,6 +10,8 @@ import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
 import Title from "@/components/Title";
 import Works from "@/components/Works";
+import Line from "@/components/Line";
+import Technologies from "@/components/Technologies";
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -46,11 +48,13 @@ export default function Home() {
       </AnimatePresence>
       <Hero />
       <Description />
+      <Line />
       <Title title="Experience" />
-      <Projects />
-      <Title title="Projects" />
       <Works />
-      {/* <Sliding /> */}
+      <Title title="Projects" />
+      <Projects />
+      <Title title="Technologies"/>
+      <Technologies />
     </main>
   );
 }

@@ -1,13 +1,29 @@
-import cloud from "@/public/images/cloud-ops.svg";
-import proptech from "@/public/images/proptech.svg";
-import headphones from "@/public/images/headphones.svg";
+import l6 from "@/public/images/linear-six.svg";
+import insighture from "@/public/images/insighture.svg";
+import zoral from "@/public/images/zoral.svg";
+import graphql from "@/public/technologies/graphql.svg";
+import firebase from "@/public/technologies/firebase.svg";
+import aws from "@/public/technologies/aws.svg";
+import cplus from "@/public/technologies/cplus.svg";
+import django from "@/public/technologies/django.svg";
+import docker from "@/public/technologies/docker.svg";
+import flask from "@/public/technologies/flask.svg";
+import mongodb from "@/public/technologies/mongodb.svg";
+import javascript from "@/public/technologies/javascript.svg";
+import python from "@/public/technologies/python.svg";
+import typescript from "@/public/technologies/typescript.svg";
+import react from "@/public/technologies/react.svg";
+import nextjs from "@/public/technologies/nextjs.svg";
+import sql from "@/public/technologies/sql.svg";
+import golang from "@/public/technologies/golang.svg";
+import postgresql from "@/public/technologies/postgresql.svg";
+import nestjs from "@/public/technologies/nestjs.svg";
 
-
-export const projects = [
+export const experience = [
   {
     title: "Linear Six",
     route: "/linear-six",
-    src: cloud,
+    src: l6,
     color: "#000000",
     descriptionLists: [
       [
@@ -24,7 +40,7 @@ export const projects = [
   {
     title: "Insighture",
     route: "/insighture",
-    src: proptech,
+    src: insighture,
     color: "#8C8C8C",
     descriptionLists: [
       [
@@ -51,7 +67,7 @@ export const projects = [
   {
     title: "Zoral",
     route: "/zoral",
-    src: headphones,
+    src: zoral,
     color: "#EFE8D3",
     descriptionLists: [
       [
@@ -65,3 +81,23 @@ export const projects = [
     descriptionTitles: ["Contributed to Zoral by:"],
   },
 ];
+
+export const technologies = [
+    { name: "React", src: react, top: 10, left: 20, size: 100 },
+    { name: "Next.js", src: nextjs, top: 40, left: 30, size: 100 },
+    { name: "NestJS", src: nestjs, top: 70, left: 15, size: 100 },
+    { name: "Golang", src: golang, top: 80, left: 50, size: 100 },
+    { name: "JavaScript", src: javascript, top: 20, left: 80, size: 100 },
+    { name: "TypeScript", src: typescript, top: 60, left: 10, size: 100 },
+    { name: "Docker", src: docker, top: 30, left: 60, size: 100 },
+    { name: "GraphQL", src: graphql, top: 50, left: 25, size: 100 },
+    { name: "Firebase", src: firebase, top: 20, left: 40, size: 100 },
+    { name: "AWS", src: aws, top: 70, left: 80, size: 100 },
+    { name: "C++", src: cplus, top: 90, left: 10, size: 100 },
+    { name: "Django", src: django, top: 30, left: 20, size: 100 },
+    { name: "Flask", src: flask, top: 10, left: 60, size: 100 },
+    { name: "MongoDB", src: mongodb, top: 80, left: 70, size: 100 },
+    { name: "Python", src: python, top: 40, left: 90, size: 100 },
+    { name: "SQL", src: sql, top: 60, left: 50, size: 100 },
+    { name: "PostgreSQL", src: postgresql, top: 90, left: 30, size: 100 },
+  ];
