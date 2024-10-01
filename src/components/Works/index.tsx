@@ -3,11 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
-import Project from "./components/project";
+import Work from "./components/work";
 
 import { listVariants, opacity } from "./animations";
 import { projects } from "@/app/constants";
-
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -34,6 +33,7 @@ const Projects = () => {
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(
     null
   );
+  const [imageVisible, setImageVisible] = useState<number | null>(null);
 
   const xMoveContainer = useRef<((value: number) => void) | null>(null);
   const yMoveContainer = useRef<((value: number) => void) | null>(null);
@@ -76,6 +76,7 @@ const Projects = () => {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     setActiveProjectIndex((prevIndex) => (prevIndex === index ? null : index));
+    setImageVisible(index);
     manageModal(false, index, e.clientX, e.clientY);
   };
 
@@ -109,7 +110,7 @@ const Projects = () => {
         {projects.map((project, index) => {
           return (
             <div className={styles.projectContainer}>
-              <Project
+              <Work
                 onClick={handleModalClick}
                 setActiveProjectIndex={setActiveProjectIndex}
                 index={index}
@@ -117,6 +118,9 @@ const Projects = () => {
                 route={project.route}
                 manageModal={manageModal}
                 key={index}
+                setImageVisible={setImageVisible}
+                imageVisible={imageVisible}
+                activeProjectIndex={activeProjectIndex}
               />
               <AnimatePresence mode="wait">
                 {activeProjectIndex === index && (
@@ -162,31 +166,15 @@ const Projects = () => {
         <p>More work</p>
       </CustomButton> */}
       <>
-        <motion.div
+        {/* <motion.div
           ref={modalContainer}
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
           className={styles.modalContainer}
         >
-          <div
-            style={{ top: index * -100 + "%" }}
-            className={styles.modalSlider}
-          >
-            {projects.map((project, index) => {
-              const { src, color } = project;
-              return (
-                <div
-                  className={styles.modal}
-                  style={{ backgroundColor: color }}
-                  key={`modal_${index}`}
-                >
-                  {/* <Image src={src} width={300} height={0} alt="image" /> */}
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
+      
+        </motion.div> */}
 
         <motion.div
           ref={cursor}

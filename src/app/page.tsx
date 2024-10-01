@@ -9,11 +9,11 @@ import Description from "@/components/Description";
 import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
 import Title from "@/components/Title";
+import Works from "@/components/Works";
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { pageLoading,setPageLoading} = useApp();
-
+  const { pageLoading, setPageLoading } = useApp();
 
   useEffect(() => {
     const initializeLocomotiveScroll = async () => {
@@ -46,10 +46,10 @@ export default function Home() {
       </AnimatePresence>
       <Hero />
       <Description />
-      <Title title="Experience"/>
+      <Title title="Experience" />
       <Projects />
-      <Title title="Projects"/>
-
+      <Title title="Projects" />
+      <Works />
       {/* <Sliding /> */}
     </main>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.scss";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
-import { slideUp, opacity } from "./animation";
+import { slideUp } from "./animation";
 
 interface ITitle {
   title: string;
