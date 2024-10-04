@@ -101,3 +101,5 @@ export const technologies = [
     { name: "SQL", src: sql, top: 60, left: 50, size: 100 },
     { name: "PostgreSQL", src: postgresql, top: 90, left: 30, size: 100 },
   ];
+
+

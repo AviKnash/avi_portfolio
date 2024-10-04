@@ -1,25 +1,64 @@
 .techMain {
   position: relative;
   background-color: #000000;
-//   overflow: hidden;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  height: calc(100vh + 10rem);
-  z-index: 1;
+  align-items: center;
+  overflow: hidden;
+
   .body {
     width: 100%;
-    display: flex;
-    .circle {
-      position: absolute;
-      background-color: transparent;
-      border-radius: 50%;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      
-    //   overflow: hidden;
+    height: 100%;
 
-      &:hover {
-        transform: scale(1.2);
+    .sliderContainer {
+      width: 100%;
+      max-width: calc(100vw - 1rem);
+      position: absolute;
+
+      .slider {
+        flex-wrap: nowrap;
+        max-width: calc(100vw - 1rem);
+        overflow: hidden;
+        -webkit-mask: linear-gradient(
+          90deg,
+          transparent,
+          white 20%,
+          white 80%,
+          transparent
+        );
+        mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        white-space: nowrap;
+
+        /* Add hover effect directly here */
+        &:hover .imageContainer {
+          animation-play-state: paused;
+        }
+
+        .imageContainer {
+          animation: 10s scroll infinite linear; /* This is the scrolling animation */
+          display: inline-block;
+
+          .image {
+            flex-shrink: 0;
+            margin: 0 2rem;
+            filter: grayscale(100%) brightness(70%);
+            transition: filter 0.3s ease;
+
+            &:hover {
+              filter: grayscale(0%) brightness(100%);
+            }
+          }
+        }
+
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-100%); /* Move completely off-screen */
+          }
+        }
       }
     }
   }

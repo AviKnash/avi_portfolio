@@ -6,11 +6,9 @@ import Projects from "@/components/Projects";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/Preloader";
 import Description from "@/components/Description";
-import Sliding from "@/components/Sliding";
 import { useApp } from "@/context/Application";
 import Title from "@/components/Title";
 import Works from "@/components/Works";
-import Line from "@/components/Line";
 import Technologies from "@/components/Technologies";
 
 export default function Home() {
@@ -48,7 +46,7 @@ export default function Home() {
       </AnimatePresence>
       <Hero />
       <Description />
-      <Line />
+
       <Title title="Experience" />
       <Works />
       <Title title="Projects" />

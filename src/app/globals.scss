@@ -1,6 +1,6 @@
 :root {
   --page-background: #141516; 
-  --gradient-background: linear-gradient(to bottom, #0d0d0c, black, black);
+  --gradient-background: linear-gradient(to bottom, #0c0c0d, #0c0c0d, #0d0d0c);
   --text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
@@ -16,6 +16,10 @@ body {
   transition-property: opacity,background,transform,filter;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
+}
+
+strong, b {
+  font-family: var(--font-montreal-bold);
 }
 
 .page-transition {
