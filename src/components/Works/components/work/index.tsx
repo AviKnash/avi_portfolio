@@ -8,13 +8,14 @@ interface IProject {
   index: number;
   title: string;
   manageModal: (active: boolean, index: number, x: number, y: number) => void;
-  route: string;
   onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   setActiveProjectIndex: React.Dispatch<SetStateAction<any>>;
   setImageVisible: React.Dispatch<SetStateAction<any>>;
   imageVisible: number | null;
   activeProjectIndex: number | null;
   image: string;
+  date:string;
+  role: string;
 }
 
 export default function Project({
@@ -25,7 +26,9 @@ export default function Project({
   setImageVisible,
   imageVisible,
   activeProjectIndex,
-  image
+  image,
+  date,
+  role
 }: IProject) {
   const onMouseLeave = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -65,8 +68,14 @@ export default function Project({
           className={styles.titleContainer}
           layout
           >
-          <motion.h1 layout>{title}</motion.h1>
-          <motion.h2 layout>Software Engineer</motion.h2>
+             <div className={styles.titleWrapper}>
+            <motion.h1 layout="position">{title}</motion.h1>
+            <motion.h2 layout="position">{role}</motion.h2>
+          </div>
+          <div className={styles.dateContainer}>
+          <motion.h1 layout="position">{date}</motion.h1>
+
+          </div>
         </motion.div>
 
         {imageVisible === index && (

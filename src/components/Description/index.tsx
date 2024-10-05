@@ -1,30 +1,79 @@
-import styles from './style.module.scss';
-import { useInView, motion } from 'framer-motion';
-import { useRef } from 'react';
-import { slideUp, opacity } from './animation';
-import CustomButton from '../../app/common/Button';
-export default function Description() {
+import styles from "./style.module.scss";
+import { useInView, motion } from "framer-motion";
+import { useRef } from "react";
+import { slideUp, opacity } from "./animation";
+import CustomButton from "../../app/common/Button";
+import Image from "next/image";
+import myself from "@/public/images/myself.png";
 
-    const phrase = "Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge.";
-    const description = useRef(null);
-    const isInView = useInView(description)
-    return (
-        <div ref={description} className={styles.description}>
-            <div className={styles.body}>
-                <p>
-                {
-                    phrase.split(" ").map( (word, index) => {
-                        return <span key={index} className={styles.mask}><motion.span variants={slideUp} custom={index} animate={isInView ? "open" : "closed"} key={index}>{word}</motion.span></span>
-                    })
-                }
-                </p>
-                <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>The combination of my passion for design, code & interaction positions me in a unique place in the web design world.</motion.p>
-                <div data-scroll data-scroll-speed={0.1}>
-                    {/* <CustomButton className={styles.button}>
-                        <p>About me</p>
-                    </CustomButton> */}
-                </div>
-            </div>
+export default function Description() {
+  const phrase1 =
+    "Started off creating software that operates hardware while pursuing mechantronic engineering. I've coded up eevrything from Arduino's to Rasberry Pie's. During this process of learning robotics embedded software is when I realised ->";
+
+  const phrase2 =
+    "Huh, I can spin up a server and host a website on these RasberyPii's. Oh, but I don't know how to build a website";
+ const phrase3 = "And the rest was history. I fell in love with the process of building these visually appealing sites and having part's of my work on the wide net to make life easier, enterataining, educational, inspiraional - they can do it all!"
+    const levelOne = useRef(null);
+  const levelTwo = useRef(null);
+  const levelOneInView = useInView(levelOne);
+  const levelTwoInView = useInView(levelTwo);
+
+  return (
+    <div className={styles.description}>
+      <div className={styles.body}>
+        <div ref={levelOne} className={styles.levelOne}>
+          <div className={styles.aboutContainer}>
+            <p>
+              {phrase1.split(" ").map((word, index) => {
+                return (
+                  <span key={index} className={styles.mask}>
+                    <motion.span
+                      variants={slideUp}
+                      custom={index}
+                      animate={levelOneInView ? "open" : "closed"}
+                      key={index}
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+          <div
+            className={styles.scrollingContainerOne}
+            data-scroll
+            data-scroll-speed={0.1}
+          >
+            <p>{phrase2}</p>
+          </div>
         </div>
-    )
+        <div ref={levelTwo} className={styles.levelTwo}>
+          <div
+            data-scroll
+            data-scroll-speed={0.1}
+            className={styles.scrollingContainerTwo}
+          >
+            <p>
+              {phrase3.split(" ").map((word, index) => {
+                return (
+                  <span key={index} className={styles.mask}>
+                    <motion.span
+                      variants={slideUp}
+                      custom={index}
+                      animate={levelTwoInView ? "open" : "closed"}
+                      key={index}
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+          <div className={styles.normalContainerTwo}></div>
+        </div>
+      </div>
+    </div>
+  );
 }

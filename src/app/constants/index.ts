@@ -22,9 +22,10 @@ import nestjs from "@/public/technologies/nestjs.svg";
 export const experience = [
   {
     title: "Linear Six",
-    route: "/linear-six",
+    role: "Associate Software Engineer/ Software Engineer",
     src: l6,
     color: "#000000",
+    date:"2022 - 2024",
     descriptionLists: [
       [
         "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
@@ -39,9 +40,10 @@ export const experience = [
   },
   {
     title: "Insighture",
-    route: "/insighture",
+    role: "Software Engineer",
     src: insighture,
     color: "#8C8C8C",
+    date:"2024 - Present",
     descriptionLists: [
       [
         "Worked on fixing synchronization issues between the audio obtained and the received text from Azure Cognitive Services to ensure correct playback for audio-to-text detection in an enterprise application, resulting in a 2-4 second improvement in audio-to-text synchronization for remote meetings.",
@@ -66,9 +68,10 @@ export const experience = [
   },
   {
     title: "Zoral",
-    route: "/zoral",
+    role: "Software Engineer",
     src: zoral,
     color: "#EFE8D3",
+    date:"2023 - 2024",
     descriptionLists: [
       [
         "Spearheading a major project to automate loan and leasing services for a leading Malaysian bank, leveraging Zoral's AI engine.",

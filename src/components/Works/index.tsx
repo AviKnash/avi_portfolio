@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import gsap from "gsap";
 import Work from "./components/work";
 
@@ -115,13 +120,14 @@ const Projects = () => {
                 setActiveProjectIndex={setActiveProjectIndex}
                 index={index}
                 title={project.title}
-                route={project.route}
                 manageModal={manageModal}
                 key={index}
                 setImageVisible={setImageVisible}
                 imageVisible={imageVisible}
                 activeProjectIndex={activeProjectIndex}
                 image={project.src}
+                date={project.date}
+                role={project.role}
               />
               <AnimatePresence mode="wait">
                 {activeProjectIndex === index && (
@@ -135,8 +141,8 @@ const Projects = () => {
                     <ul>
                       {project.descriptionTitles.map(
                         (descriptionTitle, titleIndex) => (
-                          <li key={titleIndex}>
-                            <strong>{descriptionTitle}</strong>
+                          <li className={styles.subTitle} key={titleIndex}>
+                            <strong className={styles.titleStrong}>{descriptionTitle}</strong>
                             <ul>
                               {project.descriptionLists[titleIndex].map(
                                 (descriptionItem, subIndex) => (
@@ -163,20 +169,7 @@ const Projects = () => {
           );
         })}
       </div>
-      {/* <CustomButton>
-        <p>More work</p>
-      </CustomButton> */}
       <>
-        {/* <motion.div
-          ref={modalContainer}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-          className={styles.modalContainer}
-        >
-      
-        </motion.div> */}
-
         <motion.div
           ref={cursor}
           className={styles.cursor}
@@ -191,7 +184,19 @@ const Projects = () => {
           initial="initial"
           animate={active ? "enter" : "closed"}
         >
-          View
+          <motion.svg
+            style={{ rotate: 45, scale: 2 }}
+            width="9"
+            height="9"
+            viewBox="0 0 9 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z"
+              fill="white"
+            />
+          </motion.svg>
         </motion.div>
       </>
     </main>

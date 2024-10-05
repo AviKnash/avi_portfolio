@@ -3,60 +3,89 @@
   width: 100%;
 
   .innerDiv {
-    // border: 1px solid rgb(201, 201, 201);
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    //   padding: 50px 100px 50px 100px;
     margin: 20px 0;
   }
 
   h1 {
     font-size: 60px;
     font-weight: 400;
-    transition: all 0.4s;
     margin-bottom: 0;
   }
 
   h2 {
     font-size: 20px;
     font-weight: 400;
-    transition: all 0.4s;
 
   }
 
   .titleContainer {
     position: relative;
-    border: 1px solid rgb(201, 201, 201);
-    border-top: 1px solid;
     border-left: 1px solid;
     height: 12rem;
     width: 100%;
     padding: 15px;
     margin-right: 2rem;
     transition: width 0.3s ease;
+    display: flex;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px; /* This creates a "border" effect */
+      background: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    }
+
+
+    .titleWrapper {
+      display: inline-block; // or flex, depending on your layout needs
+      margin-right: auto;
+
+      width: 100%;
+      min-width: 30%;
+    }
+    
+    .dateContainer {
+      position: relative;
+      align-items: center;
+      display: flex;
+    }
   }
 
   .imageContainer {
     position: relative;
     height: 12rem;
     width: 30%;
-    border: 1px solid rgb(201, 201, 201);
-    border-top: 1px solid;
-    border-right: 1px solid;
-    padding: 15px;
+    // border-top: 1px solid ;
+    border-right: 1px solid; 
+    padding: 1rem;
 
     overflow: hidden;
     z-index: 0;
     transition: all 0.4s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px; /* This creates a "border" effect */
+      background: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    }
 
       .innerImageContainer {
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        top: 10%;
       }
   }
 
@@ -64,10 +93,6 @@
     transition: all 0.4s;
     font-weight: 300;
   }
-
-//   &:last-of-type {
-//     //   border-bottom: 1px solid rgb(201, 201, 201);
-//   }
 
   &:hover {
     opacity: 0.5;
