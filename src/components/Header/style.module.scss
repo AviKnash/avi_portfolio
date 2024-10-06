@@ -3,7 +3,6 @@
   display: flex;
   z-index: 5;
   top: 0;
-  color: white;
   padding: 35px;
   justify-content: space-between;
   width: 100%;
@@ -23,6 +22,7 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
+      color: #ddbf69;
       margin-left: 5px;
       transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
       a {
@@ -50,11 +50,11 @@
           @extend .transitionLink;
           transform: translateX(-100%);
         }
-        .dennis {
+        .avi {
           @extend .transitionLink;
           transform: translateX(-85px);
         }
-        .snellenberg {
+        .ashok {
           @extend .transitionLink;
           transform: translateX(-97px);
         }
@@ -64,7 +64,7 @@
   .nav {
     display: flex;
     align-items: center;
-
+    color: #ddbf69;
     .el {
       display: flex;
       flex-direction: column;

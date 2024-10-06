@@ -7,19 +7,18 @@
     transform: rotateY(10deg) rotateX(10deg);
     width: fit-content;
   
-    p {
+    h1 {
       font-size: 4vw;
       font-weight: 700;
       margin: 0px;
       transition: all 0.4s;
-      color: white;
-      // line-height: 8vw;
+      line-height: 3vw;
           // border: 1px solid;
 
     }
   
     .secondary {
-      transform: rotateX(-90deg) translateY(2.5vw);
+      transform: rotateX(-90deg) translateY(1.5vw);
       transform-origin: bottom center;
       position: absolute;
       top: 0;

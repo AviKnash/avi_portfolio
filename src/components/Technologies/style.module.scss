@@ -6,17 +6,18 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-
+  z-index: 1;
   .body {
     margin-top: 10rem;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #0c0c0d, #0c0c0d, #0d0d0c);
+    border-top: 1px solid rgba(211, 211, 211, 0.1);
+
+    background: linear-gradient(to bottom, #0c0c0d, #0c0c0d, transparent);
     .sliderContainer {
       width: 100%;
       max-width: calc(100vw - 1rem);
       position: absolute;
-      margin-bottom: 5rem;
       .imageWrapper {
         position: relative;
         display: inline-block;
@@ -26,7 +27,76 @@
       .slider {
         flex-wrap: nowrap;
         max-width: calc(100vw - 1rem);
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
         overflow: hidden;
+        -webkit-mask: linear-gradient(
+          90deg,
+          transparent,
+          white 20%,
+          white 80%,
+          transparent
+        );
+        mask: linear-gradient(
+          90deg,
+          transparent,
+          white 20%,
+          white 80%,
+          transparent
+        );
+        white-space: nowrap;
+
+        /* Add hover effect directly here */
+        &:hover .imageContainer {
+          animation-play-state: paused;
+        }
+
+        .imageContainer {
+          animation: 10s scroll infinite linear; 
+          display: inline-block;
+
+          .image {
+            flex-shrink: 0;
+            margin: 0 2rem;
+            filter: grayscale(100%) brightness(70%);
+            transition: filter 0.3s ease;
+
+            &:hover {
+              filter: grayscale(0%) brightness(100%);
+            }
+          }
+        }
+
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-100%); 
+          }
+        }
+      }
+    }
+
+    .sliderContainerTwo {
+      width: 100%;
+      max-width: calc(100vw - 1rem);
+      position: absolute;
+      top: 40%;
+      margin-bottom: 5rem;
+      border-bottom: 1px solid rgba(211, 211, 211, 0.1);
+      margin-top: 2rem;
+      .imageWrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .slider {
+        flex-wrap: nowrap;
+        max-width: calc(100vw - 1rem);
+        overflow: hidden;
+        padding-bottom: 4rem;
         -webkit-mask: linear-gradient(
           90deg,
           transparent,
@@ -74,69 +144,20 @@
         }
       }
     }
-
-    .sliderContainerTwo {
-      width: 100%;
-      max-width: calc(100vw - 1rem);
-      position: absolute;
-      top: 40%;
-      margin-bottom: 5rem;
-
-      .imageWrapper {
-        position: relative;
-        display: inline-block;
-        margin: 1rem;
-      }
-
-      .slider {
-        flex-wrap: nowrap;
-        max-width: calc(100vw - 1rem);
-        overflow: hidden;
-        -webkit-mask: linear-gradient(
-          90deg,
-          transparent,
-          white 20%,
-          white 80%,
-          transparent
-        );
-        mask: linear-gradient(
-          90deg,
-          transparent,
-          white 20%,
-          white 80%,
-          transparent
-        );
-        white-space: nowrap;
-
-        /* Add hover effect directly here */
-        &:hover .imageContainer {
-          animation-play-state: paused;
-        }
-
-        .imageContainer {
-          animation: 10s scroll infinite linear; /* This is the scrolling animation */
-          display: inline-block;
-
-          .image {
-            flex-shrink: 0;
-            margin: 0 2rem;
-            filter: grayscale(100%) brightness(70%);
-            transition: filter 0.3s ease;
-
-            &:hover {
-              filter: grayscale(0%) brightness(100%);
-            }
-          }
-        }
-
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-100%); /* Move completely off-screen */
-          }
-        }
+    .circleContainer {
+      display: flex;
+      background-color: red;
+      position: relative;
+      margin-top: 30%;
+      .circle {
+        height: 1550%;
+        width: 120%;
+        left: -10%;
+        border-radius: 0 0 50% 50%;
+        background: linear-gradient(to bottom, #0e0e0f, #0c0c0d, #0c0c0d);
+        z-index: 1;
+        position: absolute;
+        /* box-shadow: 0px 60px 50px rgba(0, 0, 0, 0.748); */
       }
     }
   }

@@ -71,9 +71,11 @@ export default function Project({
              <div className={styles.titleWrapper}>
             <motion.h2 layout="position">{title}</motion.h2>
             <motion.h3 layout="position">{role}</motion.h3>
+           {imageVisible === index && <motion.p layout="position">{date}</motion.p>}
+
           </div>
           <div className={styles.dateContainer}>
-          <motion.h2 layout="position">{date}</motion.h2>
+       {imageVisible !== index && <motion.h2 layout="position">{date}</motion.h2>}
 
           </div>
         </motion.div>

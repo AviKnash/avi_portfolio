@@ -1,18 +1,18 @@
-"use client"
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import gsap from "gsap";
 import styles from "./style.module.scss";
 import { technologies, technologiesTwo } from "@/app/constants";
 import Magnetic from "@/app/common/Magnetic";
-import { ScrollTrigger } from "gsap/all";
 import Tooltip from "./components/Tooltip";
 
 const Technologies = () => {
   const firstLine = useRef(null);
   const [visibleTooltip, setVisibleTooltip] = useState<number | null>(null);
-
+  const [visibleTooltipTwo, setVisibleTooltipTwo] = useState<number | null>(
+    null
+  );
 
   const showTooltip = (index: number) => {
     setVisibleTooltip(index);
@@ -22,11 +22,17 @@ const Technologies = () => {
     setVisibleTooltip(null);
   };
 
+  const showTooltipTwo = (index: number) => {
+    setVisibleTooltipTwo(index);
+  };
+
+  const hideTooltipTwo = () => {
+    setVisibleTooltipTwo(null);
+  };
 
   return (
     <motion.main initial="initial" animate="enter" className={styles.techMain}>
       <motion.div className={styles.body}>
-
         <div className={styles.sliderContainer}>
           <div className={styles.slider}>
             <div ref={firstLine} className={styles.imageContainer}>
@@ -48,8 +54,7 @@ const Technologies = () => {
                       <Tooltip content={tech.name} />
                     )}
                   </div>
-                 </Magnetic>
-               
+                </Magnetic>
               ))}
             </div>
             <div ref={firstLine} className={styles.imageContainer}>
@@ -71,22 +76,20 @@ const Technologies = () => {
                       <Tooltip content={tech.name} />
                     )}
                   </div>
-                  
-                 </Magnetic>
+                </Magnetic>
               ))}
             </div>
           </div>
-          
         </div>
         <div className={styles.sliderContainerTwo}>
           <div className={styles.slider}>
             <div ref={firstLine} className={styles.imageContainer}>
               {technologiesTwo.map((tech, index) => (
                 <Magnetic key={`first-${index}`}>
-                   <div
+                  <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltip(index)}
-                    onMouseLeave={hideTooltip}
+                    onMouseEnter={() => showTooltipTwo(index)}
+                    onMouseLeave={hideTooltipTwo}
                   >
                     <Image
                       className={styles.image}
@@ -95,12 +98,11 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltip === index && (
+                    {visibleTooltipTwo === index && (
                       <Tooltip content={tech.name} />
                     )}
                   </div>
-                  
-                 </Magnetic>
+                </Magnetic>
               ))}
             </div>
             <div ref={firstLine} className={styles.imageContainer}>
@@ -108,8 +110,8 @@ const Technologies = () => {
                 <Magnetic key={`first-${index}`}>
                   <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltip(index)}
-                    onMouseLeave={hideTooltip}
+                    onMouseEnter={() => showTooltipTwo(index)}
+                    onMouseLeave={hideTooltipTwo}
                   >
                     <Image
                       className={styles.image}
@@ -118,17 +120,18 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltip === index && (
+                    {visibleTooltipTwo === index && (
                       <Tooltip content={tech.name} />
                     )}
                   </div>
-                  
-                 </Magnetic>
+                </Magnetic>
               ))}
             </div>
           </div>
-          
         </div>
+      <motion.div style={{ height: "10px" }} className={styles.circleContainer}>
+        <div className={styles.circle}></div>
+      </motion.div>
       </motion.div>
     </motion.main>
   );

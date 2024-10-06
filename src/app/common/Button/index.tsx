@@ -10,7 +10,7 @@ interface ICustomButton extends React.HTMLAttributes<HTMLDivElement> {
 
 const CustomButton: React.FC<ICustomButton> = ({
   children,
-  backgroundColor = "#455CE9",
+  backgroundColor = "#d4af37",
   ...attributes
 }) => {
   const circle = useRef<HTMLDivElement | null>(null);

@@ -13,12 +13,12 @@ export default function Text3D({ primary, secondary }: Text3D) {
 
   return (
     <div className={styles.textContainer}>
-      <p className={styles.primary} ref={text1}>
+      <h1 className={styles.primary} ref={text1}>
         {primary}
-      </p>
-      <p className={styles.secondary} ref={text2}>
+      </h1>
+      <h1 className={styles.secondary} ref={text2}>
         {secondary}
-      </p>
+      </h1>
     </div>
   );
 }

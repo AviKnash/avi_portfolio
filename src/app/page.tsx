@@ -91,6 +91,7 @@ export default function Home() {
       <Projects />
       <Title title="Technologies" subTitle="The tools under my belt so far..."/>
       <Technologies />
+      
     </main>
   );
 }

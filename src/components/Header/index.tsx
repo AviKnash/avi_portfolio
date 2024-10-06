@@ -56,8 +56,8 @@ export default function Header() {
           <p className={styles.copyright}>⩜⃝</p>
           <div className={styles.name}>
             <Link href="/" className={styles.codeBy}>Modelled by</Link>
-            <Link href="/" className={styles.dennis}>Avi</Link>
-            <Link href="/" className={styles.snellenberg}>nash Ashok</Link>
+            <Link href="/" className={styles.avi}>Avi</Link>
+            <Link href="/" className={styles.ashok}>nash Ashok</Link>
           </div>
         </div>
         <div className={styles.nav}>

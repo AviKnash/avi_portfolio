@@ -19,21 +19,30 @@ body {
 }
 
 h2{
-  color:#E9DCC9;
+  color:#d4af37;
   font-size: 3rem;
 }
 
 h1{
+  color:#d4af37;
   font-size: 4rem;
 }
 
 h3{
   font-size: 1.5rem;
+  color: #ddbf69;
 }
 
 p{
   font-size: 1rem;
+  color: #e5d092;
 }
+
+li {
+  color: #e5d092;
+  font-size: 1.1rem;
+}
+
 
 strong, b {
   font-family: var(--font-montreal-bold);
