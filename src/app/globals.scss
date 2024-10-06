@@ -11,11 +11,28 @@ body {
   background: var(--gradient-background);
   color: white;
   font-family: var(--font-montreal);
-  color: #dddddd;
+  // color: #dddddd;
   text-shadow: var(--text-shadow);
   transition-property: opacity,background,transform,filter;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
+}
+
+h2{
+  color:#E9DCC9;
+  font-size: 3rem;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+p{
+  font-size: 1rem;
 }
 
 strong, b {

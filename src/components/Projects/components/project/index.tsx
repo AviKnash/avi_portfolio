@@ -1,26 +1,29 @@
 "use client";
-import React, { SetStateAction } from "react";
+import React from "react";
 import styles from "./style.module.scss";
 
 interface IProject {
   index: number;
   title: string;
   manageModal: (active: boolean, index: number, x: number, y: number) => void;
-  route: string;
-  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  setActiveProjectIndex: React.Dispatch<SetStateAction<any>>;
+  href: string;
+  subTitle: string;
 }
 
 export default function Project({
   index,
   title,
   manageModal,
-  onClick,
-  setActiveProjectIndex,
+  href,
+  subTitle
 }: IProject) {
+
   const onMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     manageModal(false, index, e.clientX, e.clientY);
-    setActiveProjectIndex(null);
+  };
+
+  const onClick = () => {
+    window.open(href, "_blank");
   };
 
   return (
@@ -34,7 +37,7 @@ export default function Project({
         className={styles.innerDiv}
       >
         <h2>{title}</h2>
-        <p>Design & Development</p>
+        <p>{subTitle}</p>
       </div>
     </div>
   );

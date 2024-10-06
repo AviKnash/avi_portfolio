@@ -1,10 +1,7 @@
 import styles from "./style.module.scss";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
-import { slideUp, opacity } from "./animation";
-import CustomButton from "../../app/common/Button";
-import Image from "next/image";
-import myself from "@/public/images/myself.png";
+import { slideUp } from "./animation"
 
 export default function Description() {
   const phrase1 =

@@ -10,6 +10,7 @@ import Rounded from "../../app/common/Button";
 import Magnetic from "../../app/common/Magnetic";
 import { useRootRef } from "@/context/StickyRef/index";
 import TransitionLink from "@/app/common/TransitionLink";
+import Link from "next/link";
 
 export default function Header() {
   const header = useRef(null);
@@ -52,35 +53,35 @@ export default function Header() {
     <>
       <div ref={header} className={styles.header}>
         <div className={styles.logo}>
-          <p className={styles.copyright}>©</p>
+          <p className={styles.copyright}>⩜⃝</p>
           <div className={styles.name}>
-            <TransitionLink href="/" className={styles.codeBy}>Code by</TransitionLink>
-            <TransitionLink href="/" className={styles.dennis}>Dennis</TransitionLink>
-            <TransitionLink href="/" className={styles.snellenberg}>Snellenberg</TransitionLink>
+            <Link href="/" className={styles.codeBy}>Modelled by</Link>
+            <Link href="/" className={styles.dennis}>Avi</Link>
+            <Link href="/" className={styles.snellenberg}>nash Ashok</Link>
           </div>
         </div>
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <TransitionLink className={styles.transitionLink} href="/work">
+              <Link className={styles.transitionLink} href="/work">
                 Work
-              </TransitionLink>
+              </Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <TransitionLink className={styles.transitionLink} href="/about">
+              <Link className={styles.transitionLink} href="/about">
                 About
-              </TransitionLink>
+              </Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <TransitionLink className={styles.transitionLink} href="/contact">
+              <Link className={styles.transitionLink} href="/contact">
                 Contact
-              </TransitionLink>
+              </Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>

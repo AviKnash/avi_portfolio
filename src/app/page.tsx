@@ -39,19 +39,57 @@ export default function Home() {
     initializeLocomotiveScroll();
   }, []);
 
+  useEffect(() => {
+    const hero = scrollContainerRef.current;
+    if (!hero) return;
+
+    let rafId: number | null = null;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const lerp = (start: number, end: number, factor: number) =>
+      start + (end - start) * factor;
+
+    const animateSpotlight = () => {
+      currentX = lerp(currentX, targetX, 0.1);
+      currentY = lerp(currentY, targetY, 0.1);
+
+      hero.style.setProperty("--x", `${currentX}px`);
+      hero.style.setProperty("--y", `${currentY}px`);
+
+      rafId = requestAnimationFrame(animateSpotlight);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = hero.getBoundingClientRect();
+      targetX = e.clientX - rect.left;
+      targetY = e.clientY - rect.top;
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    rafId = requestAnimationFrame(animateSpotlight);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <main ref={scrollContainerRef} className={styles.page}>
+    <main ref={scrollContainerRef} className={`${styles.page} ${styles.hoverEffect}`}>
       <AnimatePresence mode="wait">
         {pageLoading.home && <Preloader />}
       </AnimatePresence>
       <Hero />
       <Description />
 
-      <Title title="Experience" />
+      <Title subTitle="I am the culmintation of the work I've done" title="Experience" />
       <Works />
-      <Title title="Projects" />
+      <Title subTitle="I work on a lot of random stuff. These are a few of the one's I'm half proud of." title="Projects" />
       <Projects />
-      <Title title="Technologies"/>
+      <Title title="Technologies" subTitle="The tools under my belt so far..."/>
       <Technologies />
     </main>
   );

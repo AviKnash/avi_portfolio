@@ -69,11 +69,11 @@ export default function Project({
           layout
           >
              <div className={styles.titleWrapper}>
-            <motion.h1 layout="position">{title}</motion.h1>
-            <motion.h2 layout="position">{role}</motion.h2>
+            <motion.h2 layout="position">{title}</motion.h2>
+            <motion.h3 layout="position">{role}</motion.h3>
           </div>
           <div className={styles.dateContainer}>
-          <motion.h1 layout="position">{date}</motion.h1>
+          <motion.h2 layout="position">{date}</motion.h2>
 
           </div>
         </motion.div>

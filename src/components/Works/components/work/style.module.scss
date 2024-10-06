@@ -11,15 +11,13 @@
   }
 
   h1 {
-    font-size: 60px;
     font-weight: 400;
     margin-bottom: 0;
   }
 
   h2 {
-    font-size: 20px;
     font-weight: 400;
-
+    margin-bottom: 0;
   }
 
   .titleContainer {
@@ -46,7 +44,9 @@
     .titleWrapper {
       display: inline-block; // or flex, depending on your layout needs
       margin-right: auto;
-
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
       width: 100%;
       min-width: 30%;
     }
@@ -98,6 +98,11 @@
     opacity: 0.5;
 
     h2 {
+      transform: translateX(-10px);
+    }
+
+    
+    h3 {
       transform: translateX(-10px);
     }
 

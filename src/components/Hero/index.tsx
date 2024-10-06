@@ -11,14 +11,12 @@ const Hero = () => {
  
   const [index, setIndex] = useState(0);
   const words = [
-    "Hello",
-    "Bonjour",
-    "Ciao",
-    "Olà",
-    "やあ",
-    "Hallå",
-    "Guten tag",
-    "Hallo",
+    "Financial Tech",
+    "Automating Project Management",
+    "Legal Tech",
+    "Automating DevOps",
+    "Property Tech",
+    "Automating Workflows",
   ];
 
   useEffect(() => {
@@ -45,9 +43,9 @@ const Hero = () => {
     >
       <div className={styles.maskContainer}>
         <div className={styles.container3d}>
-          <p>Hi, my name</p>
+          <h3>Hey, my name is</h3>
           <Text3D primary={"Avinash Ashok"} secondary={"Avinash Ashok"} />
-          <motion.p>
+          <motion.h3>
             I build software for{" "}
             <motion.span
               key={index}
@@ -58,7 +56,7 @@ const Hero = () => {
             >
               {words[index]}
             </motion.span>
-          </motion.p>
+          </motion.h3>
           <div className={styles.mainAbout}>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting

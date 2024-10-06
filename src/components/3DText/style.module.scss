@@ -5,6 +5,7 @@
     transform-style: preserve-3d;
     z-index: 99;
     transform: rotateY(10deg) rotateX(10deg);
+    width: fit-content;
   
     p {
       font-size: 4vw;
@@ -18,7 +19,7 @@
     }
   
     .secondary {
-      transform: rotateX(-90deg) translateY(3.5vw);
+      transform: rotateX(-90deg) translateY(2.5vw);
       transform-origin: bottom center;
       position: absolute;
       top: 0;

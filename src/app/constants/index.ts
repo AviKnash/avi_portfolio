@@ -18,6 +18,8 @@ import sql from "@/public/technologies/sql.svg";
 import golang from "@/public/technologies/golang.svg";
 import postgresql from "@/public/technologies/postgresql.svg";
 import nestjs from "@/public/technologies/nestjs.svg";
+import warboard from "@/public/images/warboard.png";
+import bubble from "@/public/images/bubble.png";
 
 export const experience = [
   {
@@ -25,7 +27,7 @@ export const experience = [
     role: "Associate Software Engineer/ Software Engineer",
     src: l6,
     color: "#000000",
-    date:"2022 - 2024",
+    date: "2022 - 2024",
     descriptionLists: [
       [
         "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
@@ -43,7 +45,7 @@ export const experience = [
     role: "Software Engineer",
     src: insighture,
     color: "#8C8C8C",
-    date:"2024 - Present",
+    date: "2024 - Present",
     descriptionLists: [
       [
         "Worked on fixing synchronization issues between the audio obtained and the received text from Azure Cognitive Services to ensure correct playback for audio-to-text detection in an enterprise application, resulting in a 2-4 second improvement in audio-to-text synchronization for remote meetings.",
@@ -71,7 +73,7 @@ export const experience = [
     role: "Software Engineer",
     src: zoral,
     color: "#EFE8D3",
-    date:"2023 - 2024",
+    date: "2023 - 2024",
     descriptionLists: [
       [
         "Spearheading a major project to automate loan and leasing services for a leading Malaysian bank, leveraging Zoral's AI engine.",
@@ -86,23 +88,39 @@ export const experience = [
 ];
 
 export const technologies = [
-    { name: "React", src: react, top: 10, left: 20, size: 100 },
-    { name: "Next.js", src: nextjs, top: 40, left: 30, size: 100 },
-    { name: "NestJS", src: nestjs, top: 70, left: 15, size: 100 },
-    { name: "Golang", src: golang, top: 80, left: 50, size: 100 },
-    { name: "JavaScript", src: javascript, top: 20, left: 80, size: 100 },
-    { name: "TypeScript", src: typescript, top: 60, left: 10, size: 100 },
-    { name: "Docker", src: docker, top: 30, left: 60, size: 100 },
-    { name: "GraphQL", src: graphql, top: 50, left: 25, size: 100 },
-    { name: "Firebase", src: firebase, top: 20, left: 40, size: 100 },
-    { name: "AWS", src: aws, top: 70, left: 80, size: 100 },
-    { name: "C++", src: cplus, top: 90, left: 10, size: 100 },
-    { name: "Django", src: django, top: 30, left: 20, size: 100 },
-    { name: "Flask", src: flask, top: 10, left: 60, size: 100 },
-    { name: "MongoDB", src: mongodb, top: 80, left: 70, size: 100 },
-    { name: "Python", src: python, top: 40, left: 90, size: 100 },
-    { name: "SQL", src: sql, top: 60, left: 50, size: 100 },
-    { name: "PostgreSQL", src: postgresql, top: 90, left: 30, size: 100 },
-  ];
+  { name: "React", src: react, top: 10, left: 20, size: 100 },
+  { name: "Next.js", src: nextjs, top: 40, left: 30, size: 100 },
+  { name: "NestJS", src: nestjs, top: 70, left: 15, size: 100 },
+  { name: "Golang", src: golang, top: 80, left: 50, size: 100 },
+  { name: "JavaScript", src: javascript, top: 20, left: 80, size: 100 },
+  { name: "TypeScript", src: typescript, top: 60, left: 10, size: 100 },
+  { name: "Docker", src: docker, top: 30, left: 60, size: 100 },
+  { name: "GraphQL", src: graphql, top: 50, left: 25, size: 100 },
+];
 
+export const technologiesTwo = [
+  { name: "Firebase", src: firebase, top: 20, left: 40, size: 100 },
+  { name: "AWS", src: aws, top: 70, left: 80, size: 100 },
+  { name: "C++", src: cplus, top: 90, left: 10, size: 100 },
+  { name: "Django", src: django, top: 30, left: 20, size: 100 },
+  { name: "Flask", src: flask, top: 10, left: 60, size: 100 },
+  { name: "MongoDB", src: mongodb, top: 80, left: 70, size: 100 },
+  { name: "Python", src: python, top: 40, left: 90, size: 100 },
+  { name: "SQL", src: sql, top: 60, left: 50, size: 100 },
+  { name: "PostgreSQL", src: postgresql, top: 90, left: 30, size: 100 },
+]
 
+export const projects = [
+  {
+    title: "Warboard",
+    href: "https://www.warboard.live",
+    src: warboard,
+    subTitle: "A real time typing game build for the most competitive of keyboard warriors."
+  },
+  {
+    title: "Bubble",
+    href: "https://bubble-pink.vercel.app",
+    src: bubble,
+    subTitle: "A instragram clone but with more soul."
+  },
+];

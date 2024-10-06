@@ -6,10 +6,11 @@ import { slideUp } from "./animation";
 import Line from "../Line";
 
 interface ITitle {
-  title: string;
+  title?: string;
+  subTitle?: string;
 }
 
-const Title = ({ title }: ITitle) => {
+const Title = ({ title,subTitle }: ITitle) => {
   const titleRef = useRef(null);
   const isInView = useInView(titleRef);
 
@@ -17,7 +18,7 @@ const Title = ({ title }: ITitle) => {
     <div ref={titleRef} className={styles.title}>
       <div className={styles.body}>
         <h1>
-          {title.split(" ").map((word, index) => {
+          {title && title.split(" ").map((word, index) => {
             return (
               <span key={index} className={styles.mask}>
                 <motion.span
@@ -32,6 +33,7 @@ const Title = ({ title }: ITitle) => {
             );
           })}
         </h1>
+        {subTitle && <h3>{subTitle}</h3>}
         <motion.div
           className={styles.underline}
           initial={{ width: "0%" }}

@@ -6,8 +6,9 @@ import gsap from "gsap";
 import Project from "./components/project";
 
 import { listVariants, opacity } from "./animations";
-import { experience } from "@/app/constants";
-
+import { projects } from "@/app/constants";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -31,10 +32,6 @@ const Projects = () => {
   const modalContainer = useRef<HTMLDivElement | null>(null);
   const cursor = useRef<HTMLDivElement | null>(null);
   const cursorLabel = useRef<HTMLDivElement | null>(null);
-  const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(
-    null
-  );
-
   const xMoveContainer = useRef<((value: number) => void) | null>(null);
   const yMoveContainer = useRef<((value: number) => void) | null>(null);
   const xMoveCursor = useRef<((value: number) => void) | null>(null);
@@ -72,12 +69,6 @@ const Projects = () => {
     });
   }, []);
 
-  const handleModalClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    setActiveProjectIndex((prevIndex) => (prevIndex === index ? null : index));
-    manageModal(false, index, e.clientX, e.clientY);
-  };
 
   const moveItems = (x: number, y: number) => {
     xMoveContainer.current?.(x);
@@ -106,54 +97,17 @@ const Projects = () => {
       className={styles.projects}
     >
       <div className={styles.body}>
-        {experience.map((project, index) => {
+        {projects.map((project, index) => {
           return (
             <div className={styles.projectContainer}>
               <Project
-                onClick={handleModalClick}
-                setActiveProjectIndex={setActiveProjectIndex}
                 index={index}
                 title={project.title}
-                route={project.route}
                 manageModal={manageModal}
                 key={index}
+                href={project.href}
+                subTitle={project.subTitle}
               />
-              <AnimatePresence mode="wait">
-                {activeProjectIndex === index && (
-                  <motion.div
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                    variants={listVariants}
-                    className={styles.subItems}
-                  >
-                    <ul>
-                      {project.descriptionTitles.map(
-                        (descriptionTitle, titleIndex) => (
-                          <li key={titleIndex}>
-                            <strong>{descriptionTitle}</strong>
-                            <ul>
-                              {project.descriptionLists[titleIndex].map(
-                                (descriptionItem, subIndex) => (
-                                  <motion.li
-                                    variants={opacity}
-                                    initial="initial"
-                                    animate="enter"
-                                    exit="exit"
-                                    key={subIndex}
-                                  >
-                                    {descriptionItem}
-                                  </motion.li>
-                                )
-                              )}
-                            </ul>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           );
         })}
@@ -173,15 +127,15 @@ const Projects = () => {
             style={{ top: index * -100 + "%" }}
             className={styles.modalSlider}
           >
-            {experience.map((project, index) => {
-              const { src, color } = project;
+            {projects.map((project, index) => {
+              const { src } = project;
               return (
                 <div
                   className={styles.modal}
-                  style={{ backgroundColor: color }}
+                  style={{ backgroundColor: "red" }}
                   key={`modal_${index}`}
                 >
-                  {/* <Image src={src} width={300} height={0} alt="image" /> */}
+                  <Image src={src} width={300} height={0} alt="porject image" />
                 </div>
               );
             })}
