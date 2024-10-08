@@ -1,0 +1,42 @@
+.customInput {
+    background: transparent; 
+    border: none; // No border
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+    outline: none; 
+    padding: 0.5rem 0.5rem; 
+    font-size: 1rem; 
+    transition: border-color 0.3s ease; 
+    color: #ddbf69;
+  
+    &::placeholder {
+      color: rgba(229, 208, 146, 0.2);
+    }
+  
+    &:focus {
+      border-bottom-color: #d4af37; // Change bottom border color on focus (gold)
+    }
+  }
+
+  .customTextArea{
+    background: transparent; 
+    border: none; // No border
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+    border-right: 1px solid rgba(211, 211, 211, 0.5);
+
+    outline: none; 
+    padding: 0.5rem 0.5rem; 
+    font-size: 1rem; 
+    transition: border-color 0.3s ease; 
+    color: #ddbf69;
+  
+    &::placeholder {
+      color: rgba(229, 208, 146, 0.2);
+    }
+  
+    &:focus {
+      border-bottom-color: #d4af37; 
+      border-right-color: #d4af37; 
+    }
+  }
+  
+  

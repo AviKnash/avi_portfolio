@@ -61,9 +61,11 @@
             margin: 0 2rem;
             filter: grayscale(100%) brightness(70%);
             transition: filter 0.3s ease;
+            border-radius: 50%;
 
             &:hover {
               filter: grayscale(0%) brightness(100%);
+              // background: transparent;
             }
           }
         }

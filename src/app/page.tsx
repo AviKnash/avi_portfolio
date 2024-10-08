@@ -78,20 +78,39 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={scrollContainerRef} className={`${styles.page} ${styles.hoverEffect}`}>
+    <main
+      ref={scrollContainerRef}
+      className={`${styles.page} ${styles.hoverEffect}`}
+    >
       <AnimatePresence mode="wait">
         {pageLoading.home && <Preloader />}
       </AnimatePresence>
       <Hero />
+      <Title
+        id="about"
+        title="About Me"
+        subTitle="A quick dive into who I am"
+      />
+
       <Description />
 
-      <Title subTitle="I am the culmintation of the work I've done" title="Experience" />
+      <Title
+        id="experience"
+        subTitle="I am the culmintation of the work I've done"
+        title="Experience"
+      />
       <Works />
-      <Title subTitle="I work on a lot of random stuff. These are a few of the one's I'm half proud of." title="Projects" />
+      <Title
+        id="projects"
+        subTitle="I work on a lot of random stuff. These are a few of the one's I'm half proud of."
+        title="Projects"
+      />
       <Projects />
-      <Title title="Technologies" subTitle="The tools under my belt so far..."/>
+      <Title
+        title="Technologies"
+        subTitle="The tools under my belt so far..."
+      />
       <Technologies />
-      
     </main>
   );
 }

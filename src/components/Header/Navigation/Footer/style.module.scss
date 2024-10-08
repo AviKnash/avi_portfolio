@@ -4,4 +4,31 @@
     justify-content: space-between;
     font-size: 12px;
     gap: 40px;
+
+    a{
+        color: #e5d092;
+
+        &:hover{
+            cursor: pointer;
+        }
+        &::after {
+            content: "";
+            width: 0%;
+            height: 1px;
+            background-color: #d4af37;
+            display: block;
+            margin-top: 2px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.2s linear;
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+              cursor: pointer;
+            }
+          }
+    }
 }

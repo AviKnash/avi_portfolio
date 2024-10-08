@@ -38,16 +38,18 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        background-color: white;
+        // background-color: white;
         pointer-events: none;
         overflow: hidden;
         z-index: 3;
+        border: 1px solid #808080;
     }
     
     .modalSlider{
         height: 100%;
         width: 100%;
         position: relative;
+
         transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
     }
     
@@ -55,8 +57,27 @@
         height: 100%;
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .projectTechnologies{
+            // height: 20%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+            .techBadge {
+                // background-color: #36454F;
+                color: black;
+                padding: 5px 10px;
+                border-radius: 12px;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+        }
+        
     }
     
     .modal img{
@@ -67,8 +88,8 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background-color: #455CE9;
-        color: white;
+        background-color: #d4af37;
+        color: black;
         position: fixed;
         z-index:3;
         display: flex;

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { slide, scale } from "../../animation";
 import { SetStateAction } from "react";
 import Magnetic from "@/app/common/Magnetic";
-import TransitionLink from "@/app/common/TransitionLink";
 
 interface ILink {
   data: {
@@ -13,9 +12,10 @@ interface ILink {
   };
   isActive: boolean;
   setSelectedIndicator: React.Dispatch<SetStateAction<any>>;
+  handleScrollTo: (id:string) => void;
 }
 
-export default function NavLink({ data, isActive, setSelectedIndicator }: ILink) {
+export default function NavLink({ data, isActive, setSelectedIndicator,handleScrollTo }: ILink) {
   const { title, href, index } = data;
 
   return (
@@ -36,7 +36,7 @@ export default function NavLink({ data, isActive, setSelectedIndicator }: ILink)
         animate={isActive ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
-        <TransitionLink href={href}>{title}</TransitionLink>
+        <a onClick={()=>handleScrollTo(href)}  >{title}</a>
     </motion.div>
       </Magnetic>
   );

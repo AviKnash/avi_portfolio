@@ -5,11 +5,11 @@ import { slideUp } from "./animation"
 
 export default function Description() {
   const phrase1 =
-    "Started off creating software that operates hardware while pursuing mechantronic engineering. I've coded up eevrything from Arduino's to Rasberry Pie's. During this process of learning robotics embedded software is when I realised ->";
+    "I began my journey in technology by developing software that interfaces with hardware while pursuing a degree in Mechatronic Engineering. From coding for Arduinos to working with Raspberry Pis, I immersed myself in the world of robotics and embedded software. It was during this process that I had a thought:";
 
   const phrase2 =
-    "Huh, I can spin up a server and host a website on these RasberyPii's. Oh, but I don't know how to build a website";
- const phrase3 = "And the rest was history. I fell in love with the process of building these visually appealing sites and having part's of my work on the wide net to make life easier, enterataining, educational, inspiraional - they can do it all!"
+    "Wait a minute, I can set up a server and host a website on these Raspberry Pis. But how do I actually build a website?";
+ const phrase3 = "That curiosity sparked a passion that has driven my career ever since. I fell in love with crafting visually stunning websites that not only showcase my work but also enrich lives by making information more accessible, providing entertainment, and inspiring creativity. These sites can truly do it all!"
     const levelOne = useRef(null);
   const levelTwo = useRef(null);
   const levelOneInView = useInView(levelOne);

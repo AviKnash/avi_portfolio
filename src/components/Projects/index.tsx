@@ -69,7 +69,6 @@ const Projects = () => {
     });
   }, []);
 
-
   const moveItems = (x: number, y: number) => {
     xMoveContainer.current?.(x);
     yMoveContainer.current?.(y);
@@ -132,10 +131,21 @@ const Projects = () => {
               return (
                 <div
                   className={styles.modal}
-                  style={{ backgroundColor: "red" }}
+                  style={{ backgroundColor: project.color }}
                   key={`modal_${index}`}
                 >
-                  <Image src={src} width={300} height={0} alt="porject image" />
+                  <Image src={src} width={300} height={0} alt="project image" />
+                  <div className={styles.projectTechnologies}>
+                    {project.techUsed.map((tech, techIndex) => (
+                      <span
+                      style={{backgroundColor:project.badgeColor}}
+                        className={styles.techBadge}
+                        key={`tech_${techIndex}`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               );
             })}

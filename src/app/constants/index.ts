@@ -115,12 +115,18 @@ export const projects = [
     title: "Warboard",
     href: "https://www.warboard.live",
     src: warboard,
+    color:'#0e0e0f',
+    badgeColor:"#d4af37",
+    techUsed:["React", "Express", "Websockets", "Firebase","Typescript", "AWS"],
     subTitle: "A real time typing game build for the most competitive of keyboard warriors."
   },
   {
     title: "Bubble",
     href: "https://bubble-pink.vercel.app",
     src: bubble,
+    color:'#0e0e0f',
+    badgeColor:"#d4af37",
+    techUsed:["React", "Typescript", "SQL"],
     subTitle: "A instragram clone but with more soul."
   },
 ];

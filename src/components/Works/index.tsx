@@ -142,7 +142,9 @@ const Projects = () => {
                       {project.descriptionTitles.map(
                         (descriptionTitle, titleIndex) => (
                           <li className={styles.subTitle} key={titleIndex}>
-                            <strong className={styles.titleStrong}>{descriptionTitle}</strong>
+                            <strong className={styles.titleStrong}>
+                              {descriptionTitle}
+                            </strong>
                             <ul>
                               {project.descriptionLists[titleIndex].map(
                                 (descriptionItem, subIndex) => (

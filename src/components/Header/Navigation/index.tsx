@@ -10,23 +10,26 @@ import Footer from './Footer';
 const navItems = [
   {
     title: "Home",
-    href: "/",
+    href: "home",
   },
   {
-    title: "Work",
-    href: "/work",
+    title: "Experience",
+    href: "experience",
   },
   {
-    title: "About",
-    href: "/about",
+    title: "Projects",
+    href: "projects",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "contact",
   },
 ]
+interface INav {
+  handleScrollTo: (id:string) => void;
+}
 
-export default function Navigation() {
+export default function Navigation({handleScrollTo}:INav) {
 
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
@@ -47,6 +50,7 @@ export default function Navigation() {
                     {
                       navItems.map( (data, index) => {
                         return <Link 
+                        handleScrollTo={handleScrollTo}
                         key={index} 
                         data={{...data, index}} 
                         isActive={selectedIndicator == data.href} 

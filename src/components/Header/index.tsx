@@ -11,6 +11,7 @@ import Magnetic from "../../app/common/Magnetic";
 import { useRootRef } from "@/context/StickyRef/index";
 import TransitionLink from "@/app/common/TransitionLink";
 import Link from "next/link";
+import { ScrollToPlugin } from "gsap/all";
 
 export default function Header() {
   const header = useRef(null);
@@ -24,7 +25,7 @@ export default function Header() {
   }, [pathname]);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
     gsap.to(button.current, {
       scrollTrigger: {
         trigger: document.documentElement,
@@ -49,6 +50,17 @@ export default function Header() {
     });
   }, []);
 
+  const handleScrollTo = (id: string) => {
+    const target = document.getElementById(id);
+    if (target) {
+      gsap.to(window, {
+        scrollTo: { y: target.offsetTop, autoKill: false },
+        duration: 1, // Adjust duration for scroll speed
+        ease: "power1.out",
+      });
+    }
+  };
+
   return (
     <>
       <div ref={header} className={styles.header}>
@@ -63,25 +75,33 @@ export default function Header() {
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <Link className={styles.transitionLink} href="/work">
-                Work
-              </Link>
+              <a role="button" className={styles.transitionLink} onClick={()=>handleScrollTo("experience")} >
+                Experience
+              </a>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <Link className={styles.transitionLink} href="/about">
+              <a role="button" className={styles.transitionLink} onClick={()=>handleScrollTo("projects")} >
+                Projects
+              </a>
+              <div className={styles.indicator}></div>
+            </div>
+          </Magnetic>
+          <Magnetic>
+            <div className={styles.el}>
+              <a onClick={()=>handleScrollTo("about")} className={styles.transitionLink}>
                 About
-              </Link>
+              </a>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <Link className={styles.transitionLink} href="/contact">
+              <a className={styles.transitionLink} role="button" onClick={()=>handleScrollTo("contact")}>
                 Contact
-              </Link>
+              </a>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
@@ -102,7 +122,7 @@ export default function Header() {
           ></div>
         </Rounded>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <Nav handleScrollTo={handleScrollTo} />}</AnimatePresence>
     </>
   );
 }
