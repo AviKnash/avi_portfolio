@@ -1,13 +1,12 @@
 .projects{
     display: flex;
     align-items: center;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 15vw;
+    padding-right: 15vw;
     flex-direction: column;
-    margin-top: 300px;
+    margin-top: 25vh;
     z-index: 1;
     position: relative;
-    // background-color: black;
     .body{
         max-width: 1400px;
         width: 100%;

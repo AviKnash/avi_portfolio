@@ -4,8 +4,6 @@ import styles from "./style.module.scss";
 import {
   AnimatePresence,
   motion,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 import gsap from "gsap";
 import Work from "./components/work";

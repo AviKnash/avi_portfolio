@@ -1,14 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import Project from "./components/project";
-
-import { listVariants, opacity } from "./animations";
 import { projects } from "@/app/constants";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -138,7 +135,7 @@ const Projects = () => {
                   <div className={styles.projectTechnologies}>
                     {project.techUsed.map((tech, techIndex) => (
                       <span
-                      style={{backgroundColor:project.badgeColor}}
+                        style={{ backgroundColor: project.badgeColor }}
                         className={styles.techBadge}
                         key={`tech_${techIndex}`}
                       >

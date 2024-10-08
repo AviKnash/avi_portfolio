@@ -8,8 +8,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../app/common/Button";
 import Magnetic from "../../app/common/Magnetic";
-import { useRootRef } from "@/context/StickyRef/index";
-import TransitionLink from "@/app/common/TransitionLink";
 import Link from "next/link";
 import { ScrollToPlugin } from "gsap/all";
 
@@ -18,7 +16,6 @@ export default function Header() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   const button = useRef(null);
-  const stickyRef = useRootRef();
 
   useEffect(() => {
     if (isActive) setIsActive(false);
@@ -115,7 +112,6 @@ export default function Header() {
           className={`${styles.button}`}
         >
           <div
-            ref={stickyRef}
             className={`${styles.burger} ${
               isActive ? styles.burgerActive : ""
             }`}
