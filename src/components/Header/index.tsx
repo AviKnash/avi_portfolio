@@ -16,35 +16,58 @@ export default function Header() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   const button = useRef(null);
+  // const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (isActive) setIsActive(false);
   }, [pathname]);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
-    gsap.to(button.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        onLeave: () => {
-          gsap.to(button.current, {
-            scale: 1,
-            duration: 0.25,
-            ease: "power1.out",
-          });
-        },
-        onEnterBack: () => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const updateMobileState = (e: any) => {
+      // setIsMobile(e.matches);
+      if (e.matches) {
+        gsap.to(button.current, {
+          scale: 1,
+          duration: 0.25,
+          ease: "power1.out",
+        });
+      }
+    };
+
+    updateMobileState(mediaQuery);
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: document.documentElement,
+      start: 0,
+      end: window.innerHeight,
+      onLeave: () => {
+        gsap.to(button.current, {
+          scale: 1,
+          duration: 0.25,
+          ease: "power1.out",
+        });
+      },
+      onEnterBack: () => {
+        if (!mediaQuery.matches) {
           gsap.to(button.current, {
             scale: 0,
             duration: 0.25,
             ease: "power1.out",
           });
           setIsActive(false);
-        },
+        }
       },
     });
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateMobileState);
+      scrollTrigger.kill();
+    };
   }, []);
 
   const handleScrollTo = (id: string) => {
@@ -64,15 +87,25 @@ export default function Header() {
         <div className={styles.logo}>
           <p className={styles.copyright}>⩜⃝</p>
           <div className={styles.name}>
-            <Link href="/" className={styles.codeBy}>Modelled by</Link>
-            <Link href="/" className={styles.avi}>Avi</Link>
-            <Link href="/" className={styles.ashok}>nash Ashok</Link>
+            <Link href="/" className={styles.codeBy}>
+              Modelled by
+            </Link>
+            <Link href="/" className={styles.avi}>
+              Avi
+            </Link>
+            <Link href="/" className={styles.ashok}>
+              nash Ashok
+            </Link>
           </div>
         </div>
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <a role="button" className={styles.transitionLink} onClick={()=>handleScrollTo("experience")} >
+              <a
+                role="button"
+                className={styles.transitionLink}
+                onClick={() => handleScrollTo("experience")}
+              >
                 Experience
               </a>
               <div className={styles.indicator}></div>
@@ -80,7 +113,11 @@ export default function Header() {
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a role="button" className={styles.transitionLink} onClick={()=>handleScrollTo("projects")} >
+              <a
+                role="button"
+                className={styles.transitionLink}
+                onClick={() => handleScrollTo("projects")}
+              >
                 Projects
               </a>
               <div className={styles.indicator}></div>
@@ -88,7 +125,10 @@ export default function Header() {
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a onClick={()=>handleScrollTo("about")} className={styles.transitionLink}>
+              <a
+                onClick={() => handleScrollTo("about")}
+                className={styles.transitionLink}
+              >
                 About
               </a>
               <div className={styles.indicator}></div>
@@ -96,7 +136,11 @@ export default function Header() {
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a className={styles.transitionLink} role="button" onClick={()=>handleScrollTo("contact")}>
+              <a
+                className={styles.transitionLink}
+                role="button"
+                onClick={() => handleScrollTo("contact")}
+              >
                 Contact
               </a>
               <div className={styles.indicator}></div>
@@ -118,7 +162,9 @@ export default function Header() {
           ></div>
         </Rounded>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Nav handleScrollTo={handleScrollTo} />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Nav handleScrollTo={handleScrollTo} />}
+      </AnimatePresence>
     </>
   );
 }

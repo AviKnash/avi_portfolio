@@ -13,7 +13,6 @@
       margin: 0px;
       transition: all 0.4s;
       line-height: 3vw;
-          // border: 1px solid;
 
     }
   
@@ -41,6 +40,37 @@
 
       opacity: 0;
 
+    }
+  }
+
+  @media (max-width: 768px) {
+    .textContainer {
+        h1 {
+            font-size: 3rem; 
+            line-height: 4vw; 
+        }
+
+        .secondary {
+            transform: rotateX(-90deg) translateY(2vw);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .textContainer {
+        h1 {
+            font-size: 2.5rem; 
+            line-height: 5vw; 
+        }
+
+        .secondary {
+            transform: rotateX(-90deg) translateY(3vw) translateX(-10vw); 
+            text-align: center;
+
+            h1{
+              text-align: center;
+            }
+        }
     }
   }
   

@@ -16,31 +16,78 @@ body {
   transition-property: opacity,background,transform,filter;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
+
+  @media (max-width: 768px) {
+    font-size: 90%; 
+  }
+
+  @media (max-width: 480px) {
+    font-size: 85%; 
+  }
 }
 
 h2{
   color:#d4af37;
   font-size: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 }
 
 h1{
   color:#d4af37;
   font-size: 4rem;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 }
 
 h3{
   font-size: 1.5rem;
   color: #ddbf69;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
 }
 
 p{
   font-size: 1rem;
   color: #e5d092;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 }
 
 li {
   color: #e5d092;
   font-size: 1.1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }
 
 
@@ -52,4 +99,15 @@ strong, b {
   opacity: 0;
   background: var(--page-background);
   transition: opacity 0.5s ease-in-out;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
 }

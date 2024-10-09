@@ -10,6 +10,8 @@
   box-sizing: border-box;
   align-items: center;
 
+  
+
   .logo {
     display: flex;
     cursor: pointer;
@@ -93,6 +95,13 @@
       cursor: pointer;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    .nav {
+      display: none; // Hide the navigation on mobile
+    }
+  }
 }
 
 .transitionLink {
@@ -156,5 +165,31 @@
       transform: rotate(-45deg);
       top: 0px;
     }
+  }
+
+  @media (max-width: 768px) {
+    transform: scale(1); 
+    top: 10px; 
+    right: 10px; 
+
+    .button {
+      width: 60px; 
+      height: 60px;
+      margin: 10px;
+    }
+
+    .burger {
+      &::after,
+      &::before {
+        width: 50%; 
+      }
+    }
+  }
+}
+
+.alwaysVisible {
+  @media (max-width: 768px) {
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }

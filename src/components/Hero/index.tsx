@@ -24,9 +24,9 @@ const Hero = () => {
       setIndex((prevIndex) =>
         prevIndex === words.length - 1 ? 0 : prevIndex + 1
       );
-    }, 2000); // Change every 1 second
+    }, 2000); 
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [words.length]);
 
   return (
@@ -87,7 +87,6 @@ const Hero = () => {
               working with a wide range of technologies across multiple domains.
             </p>
           </div>
-          {/* <Text3D primary={"Ashok"} secondary={"Engineer"} /> */}
         </div>
       </div>
     </motion.main>
