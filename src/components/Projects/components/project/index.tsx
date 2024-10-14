@@ -8,6 +8,7 @@ interface IProject {
   manageModal: (active: boolean, index: number, x: number, y: number) => void;
   href: string;
   subTitle: string;
+  isMobile: boolean;
 }
 
 export default function Project({
@@ -15,11 +16,12 @@ export default function Project({
   title,
   manageModal,
   href,
-  subTitle
+  subTitle,
+  isMobile
 }: IProject) {
 
   const onMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    manageModal(false, index, e.clientX, e.clientY);
+    !isMobile && manageModal(false, index, e.clientX, e.clientY);
   };
 
   const onClick = () => {
@@ -31,7 +33,7 @@ export default function Project({
       <div
         onClick={onClick}
         onMouseEnter={(e) => {
-          manageModal(true, index, e.clientX, e.clientY);
+          !isMobile && manageModal(true, index, e.clientX, e.clientY);
         }}
         onMouseLeave={onMouseLeave}
         className={styles.innerDiv}

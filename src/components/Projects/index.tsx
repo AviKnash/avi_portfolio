@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -35,6 +35,12 @@ const Projects = () => {
   const yMoveCursor = useRef<((value: number) => void) | null>(null);
   const xMoveCursorLabel = useRef<((value: number) => void) | null>(null);
   const yMoveCursorLabel = useRef<((value: number) => void) | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+  }, []);
 
   useEffect(() => {
     //Move Container
@@ -95,22 +101,33 @@ const Projects = () => {
       <div className={styles.body}>
         {projects.map((project, index) => {
           return (
-            <div className={styles.projectContainer}>
-              <Project
-                index={index}
-                title={project.title}
-                manageModal={manageModal}
-                key={index}
-                href={project.href}
-                subTitle={project.subTitle}
-              />
-            </div>
+            <>
+              {isMobile && (
+                  <div className={styles.mobileImageContainer}>
+                    <Image
+                      src={project.src}
+                      width={400}
+                      height={0}
+                      alt="project image"
+                    />
+                  </div>
+
+              )}
+              <div className={styles.projectContainer} key={index}>
+                <Project
+                isMobile={isMobile}
+                  index={index}
+                  title={project.title}
+                  manageModal={manageModal}
+                  key={index}
+                  href={project.href}
+                  subTitle={project.subTitle}
+                />
+              </div>
+            </>
           );
         })}
       </div>
-      {/* <CustomButton>
-        <p>More work</p>
-      </CustomButton> */}
       <>
         <motion.div
           ref={modalContainer}

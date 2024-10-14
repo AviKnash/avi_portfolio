@@ -1,6 +1,5 @@
 .techMain {
   position: relative;
-  // background-color: #000000;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -115,13 +114,12 @@
         );
         white-space: nowrap;
 
-        /* Add hover effect directly here */
         &:hover .imageContainer {
           animation-play-state: paused;
         }
 
         .imageContainer {
-          animation: 10s scroll infinite linear; /* This is the scrolling animation */
+          animation: 10s scroll infinite linear; 
           display: inline-block;
 
           .image {
@@ -141,7 +139,7 @@
             transform: translateX(0);
           }
           to {
-            transform: translateX(-100%); /* Move completely off-screen */
+            transform: translateX(-100%);
           }
         }
       }
@@ -163,4 +161,82 @@
       }
     }
   }
+  @media (max-width: 768px) {
+    .body {
+      margin-top: 5rem;
+      
+      .sliderContainer, .sliderContainerTwo {
+        max-width: calc(100vw - 0.5rem);
+
+        .slider {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+
+          .imageContainer {
+            .image {
+              margin: 0 1rem;
+              width: 70px;
+              height: 70px; 
+            }
+          }
+        }
+      }
+
+      .circleContainer {
+        margin-top: 50%; 
+        .circle {
+          height: 1200%; 
+          width: 150%;
+          left: -25%; 
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .body {
+      margin-top: 2rem;
+
+      .sliderContainer {
+        max-width: calc(100vw - 0.25rem);
+
+        .slider {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+
+          .imageContainer {
+            .image {
+              margin: 0 0.5rem;
+              width: 50px; 
+              height: 50px;
+            }
+          }
+        }
+      }
+      .sliderContainerTwo {
+        top:10%;
+        .slider {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+
+          .imageContainer {
+            .image {
+              width: 50px; 
+              height: 50px;
+            }
+          }
+        }
+      }
+
+      .circleContainer {
+        margin-top: 70%;
+        .circle {
+          height: 1000%;
+          width: 180%;
+          left: -30%;
+        }
+      }
+    }
+  }
 }
+

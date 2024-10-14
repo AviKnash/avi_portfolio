@@ -26,6 +26,17 @@
       display: flex;
       width: 100%;
       flex-direction: column;
+
+      .mobileImageContainer {
+        margin-top: 1rem;
+        position: relative;
+        height: 5rem;
+        width: 90%;
+        padding: 1rem;
+        align-items: center;
+        overflow: hidden;
+        z-index: 0;
+      }
       .subItems {
         width: 100%;
         border-bottom: 1px solid;
@@ -96,11 +107,16 @@
     .works {
       padding-left: 1rem;
       padding-right: 1rem;
+      
     }
 
     .body {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+      .subItems {
+        border-left: none !important;
+      }
+
     }
 
     .cursor,
@@ -110,4 +126,5 @@
       font-size: 12px;
     }
   }
+
 }

@@ -16,6 +16,7 @@ interface IProject {
   image: string;
   date:string;
   role: string;
+  isMobile: boolean;
 }
 
 export default function Project({
@@ -28,7 +29,8 @@ export default function Project({
   activeProjectIndex,
   image,
   date,
-  role
+  role,
+  isMobile
 }: IProject) {
   const onMouseLeave = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -69,18 +71,18 @@ export default function Project({
           layout
           >
              <div className={styles.titleWrapper}>
-            <motion.h2 layout="position">{title}</motion.h2>
+            {!isMobile && <motion.h2 layout="position">{title}</motion.h2>}
             <motion.h3 layout="position">{role}</motion.h3>
-           {imageVisible === index && <motion.p layout="position">{date}</motion.p>}
+           {(imageVisible === index || isMobile) && <motion.p layout="position">{date}</motion.p>}
 
           </div>
           <div className={styles.dateContainer}>
-       {imageVisible !== index && <motion.h2 layout="position">{date}</motion.h2>}
+       {imageVisible !== index && !isMobile && <motion.h2 layout="position">{date}</motion.h2>}
 
           </div>
         </motion.div>
 
-        {imageVisible === index && (
+        {imageVisible === index && !isMobile && (
             <motion.div
             onMouseLeave={onMouseLeaveTitle}
             onMouseEnter={onMouseEnterTitle}

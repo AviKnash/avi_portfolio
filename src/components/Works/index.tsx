@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import {
   AnimatePresence,
@@ -10,6 +10,7 @@ import Work from "./components/work";
 
 import { listVariants, opacity } from "./animations";
 import { experience } from "@/app/constants";
+import Image from "next/image";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -44,6 +45,12 @@ const Projects = () => {
   const yMoveCursor = useRef<((value: number) => void) | null>(null);
   const xMoveCursorLabel = useRef<((value: number) => void) | null>(null);
   const yMoveCursorLabel = useRef<((value: number) => void) | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+  }, []);
 
   useEffect(() => {
     //Move Container
@@ -113,6 +120,15 @@ const Projects = () => {
         {experience.map((project, index) => {
           return (
             <div className={styles.workContainer}>
+              {isMobile && 
+               <div className={styles.mobileImageContainer}>
+               <Image
+                 src={project.src}
+                 alt="work image"
+                 layout="fill"
+                 objectFit="contain"
+                 />
+             </div>}
               <Work
                 onClick={handleModalClick}
                 setActiveProjectIndex={setActiveProjectIndex}
@@ -126,6 +142,7 @@ const Projects = () => {
                 image={project.src}
                 date={project.date}
                 role={project.role}
+                isMobile={isMobile}
               />
               <AnimatePresence mode="wait">
                 {activeProjectIndex === index && (

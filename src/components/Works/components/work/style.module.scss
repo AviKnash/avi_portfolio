@@ -114,6 +114,21 @@
       transform: translateX(10px);
     }
   }
+
+  @media (max-width: 480px) {
+    .titleContainer {
+      border-left: none;
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+  }
 }
 
 .transitionLink {
