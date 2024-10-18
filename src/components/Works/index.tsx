@@ -144,6 +144,7 @@ const Projects = () => {
                 role={project.role}
                 isMobile={isMobile}
               />
+              
               <AnimatePresence mode="wait">
                 {activeProjectIndex === index && (
                   <motion.div

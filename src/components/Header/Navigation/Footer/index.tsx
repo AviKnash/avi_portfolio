@@ -6,6 +6,7 @@ export default function index() {
         <a>Instagram</a>
         <a>Medium</a>
         <a>LinkedIn</a>
+        <a>GitHub</a>
     </div>
   )
 }

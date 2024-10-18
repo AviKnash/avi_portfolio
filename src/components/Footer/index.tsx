@@ -2,7 +2,7 @@
 import styles from "./style.module.scss";
 import Image from "next/image";
 import Rounded from "../..//app/common/Button";
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Magnetic from "../..//app/common/Magnetic";
 import background from "../../public/images/myself.png";
@@ -10,6 +10,8 @@ import Input from "@/app/common/Input";
 import instagram from "@/public/images/instagram.svg";
 import linkedin from "@/public/images/linkedin.svg";
 import medium from "@/public/images/medium.svg";
+import github from "@/public/images/github.svg";
+
 
 export default function Footer() {
   const container = useRef(null);
@@ -22,6 +24,12 @@ export default function Footer() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+  }, []);
 
   return (
     <motion.div
@@ -55,7 +63,7 @@ export default function Footer() {
           </div>
           <div className={styles.contactBox}>
             <div className={styles.numberBox}>
-              <p>03</p>
+              <p>02</p>
             </div>
             <div className={styles.inputBox}>
               <h3>What&apos;s your email?</h3>
@@ -75,7 +83,7 @@ export default function Footer() {
               <Input
                 isTextArea
                 rows={1}
-                cols={40}
+                cols={isMobile ? 25 : 40}
                 placeholder="Hey Avinash, I'd like to ..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -96,6 +104,11 @@ export default function Footer() {
             </span>
           </div>
           <div>
+          <Magnetic>
+              <div className={styles.socialIcons}>
+                <Image fill src={github} alt="github" />
+              </div>
+            </Magnetic>
             <Magnetic>
               <div className={styles.socialIcons}>
                 <Image fill src={instagram} alt="instagram" />

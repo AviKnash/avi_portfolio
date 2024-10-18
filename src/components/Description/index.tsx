@@ -9,7 +9,7 @@ export default function Description() {
 
   const phrase2 =
     "Wait a minute, I can set up a server and host a website on these Raspberry Pis. But how do I actually build a website?";
- const phrase3 = "That curiosity sparked a passion that has driven my career ever since. I fell in love with crafting visually stunning websites that not only showcase my work but also enrich lives by making information more accessible, providing entertainment, and inspiring creativity. These sites can truly do it all!"
+ const phrase3 = "That curiosity sparked a passion that has driven my career ever since. I fell in love with crafting robust, scalable and functional applications that not only showcase my work but also enrich lives by making information more accessible, simplifying everyday mundabe tasks and inspiring creativity. Working with teams of people that strive for this same thing is what makes doing what I do worth all the hours."
     const levelOne = useRef(null);
   const levelTwo = useRef(null);
   const levelOneInView = useInView(levelOne);
