@@ -17,11 +17,12 @@ export default function Project({
   manageModal,
   href,
   subTitle,
-  isMobile
+  isMobile,
 }: IProject) {
-
   const onMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    !isMobile && manageModal(false, index, e.clientX, e.clientY);
+    if (!isMobile) {
+      manageModal(false, index, e.clientX, e.clientY);
+    }
   };
 
   const onClick = () => {
@@ -33,7 +34,9 @@ export default function Project({
       <div
         onClick={onClick}
         onMouseEnter={(e) => {
-          !isMobile && manageModal(true, index, e.clientX, e.clientY);
+          if (!isMobile) {
+            manageModal(true, index, e.clientX, e.clientY);
+          }
         }}
         onMouseLeave={onMouseLeave}
         className={styles.innerDiv}

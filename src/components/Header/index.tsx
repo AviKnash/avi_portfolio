@@ -27,8 +27,7 @@ export default function Header() {
 
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-    const updateMobileState = (e: any) => {
-      // setIsMobile(e.matches);
+    const updateMobileState = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches) {
         gsap.to(button.current, {
           scale: 1,

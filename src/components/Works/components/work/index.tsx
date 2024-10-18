@@ -45,12 +45,18 @@ export default function Project({
 
   const onMouseLeaveTitle = useCallback(() => {
     if (index === imageVisible) return;
-    activeProjectIndex === null && setImageVisible(null);
+
+    if (activeProjectIndex === null) {
+      setImageVisible(null);
+    }
   }, [index, imageVisible, activeProjectIndex]);
 
   const onMouseEnterTitle = useCallback(() => {
     if (index === imageVisible) return;
-    activeProjectIndex === null && setImageVisible(index);
+
+    if (activeProjectIndex === null) {
+      setImageVisible(index);
+    }
   }, [index, imageVisible, activeProjectIndex]);
 
   return (

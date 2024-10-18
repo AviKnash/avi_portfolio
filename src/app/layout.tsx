@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.scss";
 import Header from "../components/Header";
 import Footer from "@/components/Footer";
-import { AppProvider } from "@/context/Application";
+import { AppProvider } from "@/context/Application"; 
 
 const montreal = localFont({
   src: "./fonts/PPNeueMontreal-Medium.otf",

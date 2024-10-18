@@ -33,6 +33,7 @@
         height: 5rem;
         width: 50%;
         padding: 1rem;
+        margin-left: 1rem;
         align-items: center;
         overflow: hidden;
         z-index: 0;
@@ -115,6 +116,18 @@
       padding-right: 0.5rem;
       .subItems {
         border-left: none !important;
+        line-height: 1.3rem;
+        .subTitle {
+          padding-bottom: 2rem;
+
+          .titleStrong {
+            padding-bottom: 1rem;
+          }
+        }
+
+        li {
+          padding: 0.7rem 0;
+        }
       }
 
     }

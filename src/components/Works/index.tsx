@@ -119,7 +119,7 @@ const Projects = () => {
       <div className={styles.body}>
         {experience.map((project, index) => {
           return (
-            <div className={styles.workContainer}>
+            <div key={index} className={styles.workContainer}>
               {isMobile && 
                <div className={styles.mobileImageContainer}>
                <Image

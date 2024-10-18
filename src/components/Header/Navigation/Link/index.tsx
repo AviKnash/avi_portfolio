@@ -11,7 +11,7 @@ interface ILink {
     index: number;
   };
   isActive: boolean;
-  setSelectedIndicator: React.Dispatch<SetStateAction<any>>;
+  setSelectedIndicator: React.Dispatch<SetStateAction<string>>;
   handleScrollTo: (id:string) => void;
 }
 

@@ -48,7 +48,7 @@ const Hero = () => {
                 exit="exit"
                 variants={textVariants}
               >
-                I'm proficient as a
+                I&apos;m proficient as a
               </motion.h3>
             ) : (
               <motion.h3
@@ -70,7 +70,7 @@ const Hero = () => {
             <Text3D primary={"Avinash Ashok"} secondary={"Software Engineer"} />
           </div>
           <motion.h3>
-            I've built software for{" "}
+            I&apos;ve built software for{" "}
             <motion.span
               key={index}
               variants={wordVariants}
