@@ -73,6 +73,12 @@
 
         .inputBox {
           width: 80%;
+
+          .error {
+            font-size: small;
+            color: #ff8d7b;
+            margin-left: 0.6rem;
+          }
         }
       }
     }

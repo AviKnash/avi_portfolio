@@ -10,17 +10,26 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    margin-top: 15rem;
-    margin-left: 35%;
+    margin-top: 12rem;
+    margin-left: 25%;
+    gap: 1rem;
     padding-left: 1rem;
     border-left: 1px solid white;
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    p{
+      font-size: 1.6rem;
+    }
 
     .mainName {
       width: fit-content;
     }
 
     .mainAbout {
-      width: 50%;
+      width: 70%;
       line-height: 1.6;
     }
   }
@@ -51,6 +60,11 @@
 
       h3{
         text-align: center;
+        font-size: 1.6rem;
+      }
+
+      p{
+        font-size: 1.2rem;
       }
       .mainAbout {
         width: 80%;

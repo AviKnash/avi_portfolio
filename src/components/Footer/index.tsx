@@ -12,7 +12,6 @@ import linkedin from "@/public/images/linkedin.svg";
 import medium from "@/public/images/medium.svg";
 import github from "@/public/images/github.svg";
 
-
 export default function Footer() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -25,11 +24,50 @@ export default function Footer() {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [isMobile, setIsMobile] = useState(false);
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   useLayoutEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
   }, []);
+
+  const validateForm = () => {
+    let formIsValid = true;
+    let errors = { name: "", email: "", message: "" };
+
+    if (!name) {
+      errors.name = "Please enter your name";
+      formIsValid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      errors.email = "Please enter your email";
+      formIsValid = false;
+    } else if (!emailPattern.test(email)) {
+      errors.email = "Please enter a valid email address";
+      formIsValid = false;
+    }
+
+    if (!message) {
+      errors.message = "Please enter your message";
+      formIsValid = false;
+    }
+
+    setErrors(errors);
+    return formIsValid;
+  };
+
+  const handleSubmit = () => {
+    if (validateForm()) {
+      // Submit the form (e.g., send data to an API)
+      alert("Form submitted successfully!");
+    }
+  };
 
   return (
     <motion.div
@@ -59,6 +97,7 @@ export default function Footer() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Input>
+              {errors.name && <p className={styles.error}>{errors.name}</p>}
             </div>
           </div>
           <div className={styles.contactBox}>
@@ -72,6 +111,7 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></Input>
+              {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
           </div>
           <div className={styles.contactBox}>
@@ -88,11 +128,14 @@ export default function Footer() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></Input>
+              {errors.message && (
+                <p className={styles.error}>{errors.message}</p>
+              )}
             </div>
           </div>
         </div>
         <div className={styles.nav}>
-          <Rounded>
+          <Rounded onClick={handleSubmit}>
             <p>Send it!</p>
           </Rounded>
         </div>
@@ -104,7 +147,7 @@ export default function Footer() {
             </span>
           </div>
           <div>
-          <Magnetic>
+            <Magnetic>
               <div className={styles.socialIcons}>
                 <Image fill src={github} alt="github" />
               </div>
