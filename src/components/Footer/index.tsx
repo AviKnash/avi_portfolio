@@ -37,7 +37,7 @@ export default function Footer() {
 
   const validateForm = () => {
     let formIsValid = true;
-    let errors = { name: "", email: "", message: "" };
+    const errors = { name: "", email: "", message: "" };
 
     if (!name) {
       errors.name = "Please enter your name";
