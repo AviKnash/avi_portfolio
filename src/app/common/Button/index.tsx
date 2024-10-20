@@ -93,7 +93,7 @@ const CustomButton: React.FC<ICustomButton> = ({
         {loading ? <p>{loadingText}{dots}</p> : children}
         <div
           ref={circle}
-          style={{ backgroundColor: disabled ? "#cccccc" : backgroundColor }}
+          style={{ backgroundColor }}
           className={styles.circle}
         ></div>
       </div>

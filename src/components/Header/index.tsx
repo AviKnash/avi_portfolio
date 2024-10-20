@@ -16,7 +16,7 @@ export default function Header() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   const button = useRef(null);
-  // const [isMobile, setIsMobile] = useState(false);
+
 
   useEffect(() => {
     if (isActive) setIsActive(false);
@@ -74,9 +74,10 @@ export default function Header() {
     if (target) {
       gsap.to(window, {
         scrollTo: { y: target.offsetTop, autoKill: false },
-        duration: 1, // Adjust duration for scroll speed
+        duration: 1, 
         ease: "power1.out",
       });
+      setIsActive(false)
     }
   };
 

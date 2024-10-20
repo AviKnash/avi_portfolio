@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./style.module.scss";
@@ -13,6 +13,12 @@ const Technologies = () => {
   const [visibleTooltipTwo, setVisibleTooltipTwo] = useState<number | null>(
     null
   );
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+  }, []);
 
   const showTooltip = (index: number) => {
     setVisibleTooltip(index);
@@ -129,9 +135,9 @@ const Technologies = () => {
             </div>
           </div>
         </div>
-      <motion.div style={{ height: "10px" }} className={styles.circleContainer}>
+      {!isMobile && <motion.div style={{ height: "10px" }} className={styles.circleContainer}>
         <div className={styles.circle}></div>
-      </motion.div>
+      </motion.div>}
       </motion.div>
     </motion.main>
   );
