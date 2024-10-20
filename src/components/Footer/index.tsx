@@ -68,7 +68,7 @@ export default function Footer() {
 
   const handleSubmit = () => {
     if (formSending) return;
-    
+
     if (validateForm()) {
       setFormSending(true);
 
@@ -92,6 +92,9 @@ export default function Footer() {
           () => {
             alert("Thanks for the message. I'll get back to you asap.");
             setFormSending(false);
+            setEmail("");
+            setName("");
+            setMessage("");
           },
           (error) => {
             if (error.status === 429) {
@@ -175,7 +178,7 @@ export default function Footer() {
         <div className={styles.nav}>
           <Rounded
             loadingText="Sending Now"
-            disabled={formSending}
+            disabled={true}
             loading={formSending}
             onClick={handleSubmit}
           >
