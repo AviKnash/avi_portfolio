@@ -130,3 +130,10 @@ export const projects = [
     subTitle: "A instragram clone but with more soul."
   },
 ];
+
+export const SOCIAL_LINKS = {
+  github: "https://github.com/AviKnash",
+  instagram: "https://www.instagram.com/avinash.ashok.97",
+  medium: "https://medium.com/@aavinash1997",
+  linkedin: "https://linkedin.com/in/avinash-asok-541b25241"
+};

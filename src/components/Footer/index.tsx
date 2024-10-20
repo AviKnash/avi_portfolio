@@ -11,6 +11,9 @@ import instagram from "@/public/images/instagram.svg";
 import linkedin from "@/public/images/linkedin.svg";
 import medium from "@/public/images/medium.svg";
 import github from "@/public/images/github.svg";
+import { SOCIAL_LINKS } from "@/app/constants";
+import { openInNewTab } from "@/app/utils/functions";
+import emailjs from "@emailjs/browser";
 
 export default function Footer() {
   const container = useRef(null);
@@ -29,6 +32,7 @@ export default function Footer() {
     email: "",
     message: "",
   });
+  const [formSending, setFormSending] = useState(false);
 
   useLayoutEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -63,9 +67,43 @@ export default function Footer() {
   };
 
   const handleSubmit = () => {
+    if (formSending) return;
+    
     if (validateForm()) {
-      // Submit the form (e.g., send data to an API)
-      alert("Form submitted successfully!");
+      setFormSending(true);
+
+      const tempParams = {
+        name,
+        message,
+        email,
+      };
+
+      emailjs
+        .send(
+          String(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID),
+          String(process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID),
+          tempParams,
+          {
+            publicKey: String(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY),
+            limitRate: { throttle: 10000 },
+          }
+        )
+        .then(
+          () => {
+            alert("Thanks for the message. I'll get back to you asap.");
+            setFormSending(false);
+          },
+          (error) => {
+            if (error.status === 429) {
+              setFormSending(false);
+              return alert("Too many messages! Please retry a bit later.");
+            }
+            alert(
+              "Sorry, there was an error while sending the message, Please try again later!"
+            );
+            setFormSending(false);
+          }
+        );
     }
   };
 
@@ -135,7 +173,12 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.nav}>
-          <Rounded onClick={handleSubmit}>
+          <Rounded
+            loadingText="Sending Now"
+            disabled={formSending}
+            loading={formSending}
+            onClick={handleSubmit}
+          >
             <p>Send it!</p>
           </Rounded>
         </div>
@@ -148,23 +191,35 @@ export default function Footer() {
           </div>
           <div>
             <Magnetic>
-              <div className={styles.socialIcons}>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.github)}
+                className={styles.socialIcons}
+              >
                 <Image fill src={github} alt="github" />
               </div>
             </Magnetic>
             <Magnetic>
-              <div className={styles.socialIcons}>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.instagram)}
+                className={styles.socialIcons}
+              >
                 <Image fill src={instagram} alt="instagram" />
               </div>
             </Magnetic>
 
             <Magnetic>
-              <div className={styles.socialIcons}>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.medium)}
+                className={styles.socialIcons}
+              >
                 <Image fill src={medium} alt="medium" />
               </div>
             </Magnetic>
             <Magnetic>
-              <div className={styles.socialIcons}>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.linkedin)}
+                className={styles.socialIcons}
+              >
                 <Image fill src={linkedin} alt="linkedin" />
               </div>
             </Magnetic>
