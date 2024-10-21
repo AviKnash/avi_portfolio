@@ -1,8 +1,12 @@
 :root {
   --page-background: #141516; 
   --gradient-background: linear-gradient(to bottom, #0c0c0d, #0c0c0d, #0d0d0c);
-  --text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  --text-shadow: 0.5px 0.5px 1.5px rgba(255, 255, 255, 0.3);
 }
+
+//current color pallettes:-
+
+//https://coolors.co/palette/edf2fb-e2eafc-d7e3fc-ccdbfd-c1d3fe-b6ccfe-abc4ff
 
 body {
   margin: 0px;
@@ -11,7 +15,6 @@ body {
   background: var(--gradient-background);
   color: white;
   font-family: var(--font-montreal);
-  // color: #dddddd;
   text-shadow: var(--text-shadow);
   transition-property: opacity,background,transform,filter;
   transition-timing-function: ease-in-out;
@@ -31,7 +34,8 @@ body {
 }
 
 h2{
-  color:#d4af37;
+  // color:#d4af37;
+  color: #e2eafc;
   font-size: 3rem;
 
   @media (max-width: 768px) {
@@ -44,7 +48,8 @@ h2{
 }
 
 h1{
-  color:#d4af37;
+  // color:#d4af37;
+  color: #e2eafc;
   font-size: 4rem;
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -57,7 +62,8 @@ h1{
 
 h3{
   font-size: 1.5rem;
-  color: #ddbf69;
+  // color: #ddbf69;
+  color:#c1d3fe;
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
@@ -70,7 +76,8 @@ h3{
 
 p{
   font-size: 1rem;
-  color: #e5d092;
+  // color: #e5d092;
+  color: #abc4ff;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -82,7 +89,7 @@ p{
 }
 
 li {
-  color: #e5d092;
+  color: #abc4ff;
   font-size: 1.1rem;
 
   @media (max-width: 768px) {

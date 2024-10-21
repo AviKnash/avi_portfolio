@@ -6,14 +6,14 @@
     padding: 0.5rem 0.5rem; 
     font-size: 1rem; 
     transition: border-color 0.3s ease; 
-    color: #ddbf69;
+    color: #e2eafc;
   
     &::placeholder {
       color: rgba(229, 208, 146, 0.2);
     }
   
     &:focus {
-      border-bottom-color: #d4af37; // Change bottom border color on focus (gold)
+      border-bottom-color: #abc4ff; // Change bottom border color on focus (gold)
     }
   }
 
@@ -27,7 +27,7 @@
     padding: 0.5rem 0.5rem; 
     font-size: 1rem; 
     transition: border-color 0.3s ease; 
-    color: #ddbf69;
+    color: #e2eafc;
   
     &::placeholder {
       color: rgba(229, 208, 146, 0.2);

@@ -13,7 +13,7 @@ interface ICustomButton extends React.HTMLAttributes<HTMLDivElement> {
 
 const CustomButton: React.FC<ICustomButton> = ({
   children,
-  backgroundColor = "#d4af37",
+  backgroundColor = "#abc4ff",
   loading = false,
   disabled = false,
   loadingText,
