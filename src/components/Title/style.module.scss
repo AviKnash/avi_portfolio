@@ -4,7 +4,7 @@
   display: flex;
   border-top: 1px solid rgba(211, 211, 211, 0.1);
   justify-content: start;
-  padding-left: 17rem;
+  padding-left: 15rem;
 
   @media (max-width: 768px) {
     padding-left: 5rem;
@@ -72,6 +72,7 @@
     }
   }
 }
+
 
 .underline {
   position: absolute;

@@ -178,7 +178,7 @@ export default function Footer() {
         <div className={styles.nav}>
           <Rounded
             loadingText="Sending Now"
-            disabled={true}
+            disabled={formSending}
             loading={formSending}
             onClick={handleSubmit}
           >

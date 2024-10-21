@@ -1,8 +1,8 @@
 .projects{
     display: flex;
     align-items: center;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
     flex-direction: column;
     margin-top: 25vh;
     z-index: 1;
@@ -78,7 +78,7 @@
             margin-top: 1rem;
             .techBadge {
                 // background-color: #36454F;
-                color: black;
+                color: white;
                 padding: 5px 10px;
                 border-radius: 12px;
                 font-size: 12px;
@@ -96,8 +96,8 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background-color: #d4af37;
-        color: black;
+        background-color: #abc4ff;
+        color: white;
         position: fixed;
         z-index:3;
         display: flex;
