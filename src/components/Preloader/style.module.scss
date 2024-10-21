@@ -7,6 +7,30 @@
     position: fixed;
     z-index: 99;
     background-color: #141516;
+
+.loader {
+    z-index: 1;
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 4rem;
+    background: radial-gradient(circle closest-side,#3d5a80 94%,#0000) right/calc(200% - 1em) 100%;
+    animation: l24 2s infinite alternate linear;
+  }
+  .loader::before {
+    content: "Loading Interactions...";
+    line-height: 1em;
+    color: #0000;
+    background: inherit;
+    background-image: radial-gradient(circle closest-side,#c1d3fe 94%,#000);
+    -webkit-background-clip:text;
+            background-clip:text;
+  }
+  
+  @keyframes l24{
+    100%{background-position: left}
+  }
+
     svg{
         position: absolute;
         top: 0;
