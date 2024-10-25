@@ -20,6 +20,7 @@ import postgresql from "@/public/technologies/postgresql.svg";
 import nestjs from "@/public/technologies/nestjs.svg";
 import warboard from "@/public/images/warboard.png";
 import bubble from "@/public/images/bubble.png";
+import portfolio from "@/public/images/portfolio.png"
 
 export const experience = [
   {
@@ -122,12 +123,21 @@ export const projects = [
   },
   {
     title: "Bubble",
-    href: "https://bubble-pink.vercel.app",
+    href: "https://www.tinybubbles.online",
     src: bubble,
     color:'#0e0e0f',
     badgeColor:"#3d5a80",
-    techUsed:["React", "Typescript", "SQL"],
-    subTitle: "A instragram clone but with more soul."
+    techUsed:["React", "Typescript", "SQL", "Tailwind", "AppwriteDB","AWS"],
+    subTitle: "A mini social media application with all the charms to match."
+  },
+  {
+    title: "Portfolio",
+    href: "https://www.aavinash.live",
+    src: portfolio,
+    color:'#0e0e0f',
+    badgeColor:"#3d5a80",
+    techUsed:["Nextjs", "Typescript", "SCSS", "AWS"],
+    subTitle: "My minimalistic yet modern attempt at a portfolio."
   },
 ];
 
