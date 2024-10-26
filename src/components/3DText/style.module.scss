@@ -6,6 +6,13 @@
     z-index: 99;
     transform: rotateY(10deg) rotateX(10deg);
     width: fit-content;
+    display: flex;
+
+    svg {
+      margin-left: 2rem;
+      position: relative;
+      bottom: 1rem;
+    }
   
     h1 {
       font-size: 5.5rem;

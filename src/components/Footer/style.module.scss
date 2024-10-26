@@ -125,19 +125,20 @@
           }
         }
         .socialIcons {
-          width: 30px;
-          height: 30px;
+          width: 2.5rem;
+          height: 2.5rem;
           position: relative;
           border-radius: 50%;
           overflow: hidden;
           margin: 0;
           padding: 0.1rem;
-          margin: 0.2rem;
+          margin: 0.7rem;
 
           
 
           img {
-            filter: grayscale(100%) brightness(70%);
+            filter: sepia(100%) hue-rotate(190deg) saturate(70%) brightness(90%);
+            transition: filter 0.3s ease;
 
             &:hover {
               filter: grayscale(0%) brightness(100%);

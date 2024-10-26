@@ -148,7 +148,7 @@ const Projects = () => {
                   style={{ backgroundColor: project.color }}
                   key={`modal_${index}`}
                 >
-                  <Image src={src} width={300} height={0} alt="project image" />
+                  <Image src={src} width={450} height={0} alt="project image" />
                   <div className={styles.projectTechnologies}>
                     {project.techUsed.map((tech, techIndex) => (
                       <span

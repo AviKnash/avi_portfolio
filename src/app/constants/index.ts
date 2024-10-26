@@ -20,27 +20,9 @@ import postgresql from "@/public/technologies/postgresql.svg";
 import nestjs from "@/public/technologies/nestjs.svg";
 import warboard from "@/public/images/warboard.png";
 import bubble from "@/public/images/bubble.png";
-import portfolio from "@/public/images/portfolio.png"
+import portfolio from "@/public/images/portfolio.png";
 
 export const experience = [
-  {
-    title: "Linear Six",
-    role: "Associate Software Engineer/ Software Engineer",
-    src: l6,
-    color: "#000000",
-    date: "2022 - 2024",
-    descriptionLists: [
-      [
-        "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
-        "Leveraged AWS services to implement efficient hosting, CI/CD, log tracking, and data handling.",
-        "Engaged in Agile-style development using Scrum project management methodologies.",
-        "Implemented best practices in software development, including secure version management and comprehensive testing (unit, regression, and integration tests), ensuring maintainability and scalability.",
-      ],
-    ],
-    descriptionTitles: [
-      "Worked on Bespoke team for internal development, contributing to LinearSix by:",
-    ],
-  },
   {
     title: "Insighture",
     role: "Software Engineer",
@@ -67,6 +49,24 @@ export const experience = [
       "Worked on the project team focusing on RegTech and contributing by:",
       "Worked on the project team focusing on PropTech and contributed by:",
       "Worked on the product team building a SaaS application and contributing by:",
+    ],
+  },
+  {
+    title: "Linear Six",
+    role: "Associate Software Engineer/ Software Engineer",
+    src: l6,
+    color: "#000000",
+    date: "2022 - 2024",
+    descriptionLists: [
+      [
+        "Designed, implemented, and developed a project time tracker/reporting service application to replace Clockify.",
+        "Leveraged AWS services to implement efficient hosting, CI/CD, log tracking, and data handling.",
+        "Engaged in Agile-style development using Scrum project management methodologies.",
+        "Implemented best practices in software development, including secure version management and comprehensive testing (unit, regression, and integration tests), ensuring maintainability and scalability.",
+      ],
+    ],
+    descriptionTitles: [
+      "Worked on Bespoke team for internal development, contributing to LinearSix by:",
     ],
   },
   {
@@ -109,35 +109,43 @@ export const technologiesTwo = [
   { name: "Python", src: python, top: 40, left: 90, size: 100 },
   { name: "SQL", src: sql, top: 60, left: 50, size: 100 },
   { name: "PostgreSQL", src: postgresql, top: 90, left: 30, size: 100 },
-]
+];
 
 export const projects = [
   {
     title: "Warboard",
     href: "https://www.warboard.live",
     src: warboard,
-    color:'#0e0e0f',
-    badgeColor:"#3d5a80",
-    techUsed:["React", "Express", "Websockets", "Firebase","Typescript", "AWS"],
-    subTitle: "A real time typing game build for the most competitive of keyboard warriors."
+    color: "#0e0e0f",
+    badgeColor: "#3d5a80",
+    techUsed: [
+      "React",
+      "Express",
+      "Websockets",
+      "Firebase",
+      "Typescript",
+      "AWS",
+    ],
+    subTitle:
+      "A real time typing game build for the most competitive of keyboard warriors.",
   },
   {
     title: "Bubble",
     href: "https://www.tinybubbles.online",
     src: bubble,
-    color:'#0e0e0f',
-    badgeColor:"#3d5a80",
-    techUsed:["React", "Typescript", "SQL", "Tailwind", "AppwriteDB","AWS"],
-    subTitle: "A mini social media application with all the charms to match."
+    color: "#0e0e0f",
+    badgeColor: "#3d5a80",
+    techUsed: ["React", "Typescript", "SQL", "Tailwind", "AppwriteDB", "AWS"],
+    subTitle: "A mini social media application with all the charms to match.",
   },
   {
     title: "Portfolio",
     href: "https://www.aavinash.live",
     src: portfolio,
-    color:'#0e0e0f',
-    badgeColor:"#3d5a80",
-    techUsed:["Nextjs", "Typescript", "SCSS", "AWS"],
-    subTitle: "My minimalistic yet modern attempt at a portfolio."
+    color: "#0e0e0f",
+    badgeColor: "#3d5a80",
+    techUsed: ["Nextjs", "Typescript", "SCSS", "AWS"],
+    subTitle: "My minimalistic yet modern attempt at a portfolio.",
   },
 ];
 
@@ -145,5 +153,5 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/AviKnash",
   instagram: "https://www.instagram.com/avinash.ashok.97",
   medium: "https://medium.com/@aavinash1997",
-  linkedin: "https://linkedin.com/in/avinash-asok-541b25241"
+  linkedin: "https://linkedin.com/in/avinash-asok-541b25241",
 };

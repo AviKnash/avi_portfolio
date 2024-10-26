@@ -5,14 +5,10 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import { technologies, technologiesTwo } from "@/app/constants";
 import Magnetic from "@/app/common/Magnetic";
-import Tooltip from "./components/Tooltip";
 
 const Technologies = () => {
   const firstLine = useRef(null);
-  const [visibleTooltip, setVisibleTooltip] = useState<number | null>(null);
-  const [visibleTooltipTwo, setVisibleTooltipTwo] = useState<number | null>(
-    null
-  );
+ 
   const [isMobile, setIsMobile] = useState(false);
 
   useLayoutEffect(() => {
@@ -20,22 +16,7 @@ const Technologies = () => {
     setIsMobile(mediaQuery.matches);
   }, []);
 
-  const showTooltip = (index: number) => {
-    setVisibleTooltip(index);
-  };
-
-  const hideTooltip = () => {
-    setVisibleTooltip(null);
-  };
-
-  const showTooltipTwo = (index: number) => {
-    setVisibleTooltipTwo(index);
-  };
-
-  const hideTooltipTwo = () => {
-    setVisibleTooltipTwo(null);
-  };
-
+ 
   return (
     <motion.main initial="initial" animate="enter" className={styles.techMain}>
       <motion.div className={styles.body}>
@@ -46,8 +27,6 @@ const Technologies = () => {
                 <Magnetic key={`first-${index}`}>
                   <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltip(index)}
-                    onMouseLeave={hideTooltip}
                   >
                     <Image
                       className={styles.image}
@@ -56,9 +35,7 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltip === index && (
-                      <Tooltip content={tech.name} />
-                    )}
+                    <h3>{tech.name}</h3>
                   </div>
                 </Magnetic>
               ))}
@@ -68,8 +45,6 @@ const Technologies = () => {
                 <Magnetic key={`first-${index}`}>
                   <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltip(index)}
-                    onMouseLeave={hideTooltip}
                   >
                     <Image
                       className={styles.image}
@@ -78,9 +53,7 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltip === index && (
-                      <Tooltip content={tech.name} />
-                    )}
+                    <h3 >{tech.name}</h3>
                   </div>
                 </Magnetic>
               ))}
@@ -94,8 +67,6 @@ const Technologies = () => {
                 <Magnetic key={`first-${index}`}>
                   <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltipTwo(index)}
-                    onMouseLeave={hideTooltipTwo}
                   >
                     <Image
                       className={styles.image}
@@ -104,9 +75,7 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltipTwo === index && (
-                      <Tooltip content={tech.name} />
-                    )}
+                    <h3>{tech.name}</h3>
                   </div>
                 </Magnetic>
               ))}
@@ -116,8 +85,6 @@ const Technologies = () => {
                 <Magnetic key={`first-${index}`}>
                   <div
                     className={styles.imageWrapper}
-                    onMouseEnter={() => showTooltipTwo(index)}
-                    onMouseLeave={hideTooltipTwo}
                   >
                     <Image
                       className={styles.image}
@@ -126,18 +93,21 @@ const Technologies = () => {
                       height={100}
                       alt={tech.name}
                     />
-                    {visibleTooltipTwo === index && (
-                      <Tooltip content={tech.name} />
-                    )}
+                    <h3>{tech.name}</h3>
                   </div>
                 </Magnetic>
               ))}
             </div>
           </div>
         </div>
-      {!isMobile && <motion.div style={{ height: "10px" }} className={styles.circleContainer}>
-        <div className={styles.circle}></div>
-      </motion.div>}
+        {!isMobile && (
+          <motion.div
+            style={{ height: "10px" }}
+            className={styles.circleContainer}
+          >
+            <div className={styles.circle}></div>
+          </motion.div>
+        )}
       </motion.div>
     </motion.main>
   );
