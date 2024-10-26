@@ -17,10 +17,22 @@
       width: 100%;
       max-width: calc(100vw - 1rem);
       position: absolute;
+
       .imageWrapper {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         margin: 1rem;
+
+        img {
+          display: inline-block;
+          margin-right: 1rem;
+        }
+
+        h3 {
+          text-align: left;
+          margin: 0;
+        }
       }
 
       .slider {
@@ -52,7 +64,7 @@
         }
 
         .imageContainer {
-          animation: 10s scroll infinite linear; 
+          animation: 10s scroll infinite linear;
           display: inline-block;
 
           .image {
@@ -64,7 +76,6 @@
 
             &:hover {
               filter: grayscale(0%) brightness(100%);
-              // background: transparent;
             }
           }
         }
@@ -74,7 +85,7 @@
             transform: translateX(0);
           }
           to {
-            transform: translateX(-100%); 
+            transform: translateX(-100%);
           }
         }
       }
@@ -90,7 +101,19 @@
       margin-top: 2rem;
       .imageWrapper {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        margin: 1rem;
+
+        img {
+          display: inline-block;
+          margin-right: 1rem;
+        }
+
+        h3 {
+          text-align: left;
+          margin: 0;
+        }
       }
 
       .slider {
@@ -119,7 +142,7 @@
         }
 
         .imageContainer {
-          animation: 10s scroll infinite linear; 
+          animation: 10s scroll infinite linear;
           display: inline-block;
 
           .image {
@@ -164,8 +187,9 @@
   @media (max-width: 768px) {
     .body {
       margin-top: 5rem;
-      
-      .sliderContainer, .sliderContainerTwo {
+
+      .sliderContainer,
+      .sliderContainerTwo {
         max-width: calc(100vw - 0.5rem);
 
         .slider {
@@ -176,18 +200,18 @@
             .image {
               margin: 0 1rem;
               width: 70px;
-              height: 70px; 
+              height: 70px;
             }
           }
         }
       }
 
       .circleContainer {
-        margin-top: 50%; 
+        margin-top: 50%;
         .circle {
-          height: 1200%; 
+          height: 1200%;
           width: 150%;
-          left: -25%; 
+          left: -25%;
         }
       }
     }
@@ -207,21 +231,21 @@
           .imageContainer {
             .image {
               margin: 0 0.5rem;
-              width: 50px; 
+              width: 50px;
               height: 50px;
             }
           }
         }
       }
       .sliderContainerTwo {
-        top:10%;
+        top: 10%;
         .slider {
           padding-top: 1rem;
           padding-bottom: 1rem;
 
           .imageContainer {
             .image {
-              width: 50px; 
+              width: 50px;
               height: 50px;
             }
           }
@@ -239,4 +263,3 @@
     }
   }
 }
-

@@ -5,6 +5,13 @@ import { slideUp, textVariants, wordVariants } from "./animation";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Text3D from "../3DText";
+import Magnetic from "@/app/common/Magnetic";
+import Image from "next/image";
+import { openInNewTab } from "@/app/utils/functions";
+import { SOCIAL_LINKS } from "@/app/constants";
+import linkedin from "@/public/images/linkedin.svg";
+import medium from "@/public/images/medium.svg";
+import github from "@/public/images/github.svg";
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
@@ -38,11 +45,38 @@ const Hero = () => {
       id="home"
     >
       <div className={styles.maskContainer}>
+      <div className={styles.iconContainer}>
+            <Magnetic>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.github)}
+                className={styles.socialIcons}
+              >
+                <Image fill src={github} alt="github" />
+              </div>
+            </Magnetic>
+
+            <Magnetic>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.medium)}
+                className={styles.socialIcons}
+              >
+                <Image fill src={medium} alt="medium" />
+              </div>
+            </Magnetic>
+            <Magnetic>
+              <div
+                onClick={() => openInNewTab(SOCIAL_LINKS.linkedin)}
+                className={styles.socialIcons}
+              >
+                <Image fill src={linkedin} alt="linkedin" />
+              </div>
+            </Magnetic>
+          </div>
         <div className={styles.container3d}>
           <AnimatePresence mode="wait">
             {isMainTextHovered ? (
               <motion.h3
-                key="proficient" // Unique key to animate between text changes
+                key="proficient" 
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -83,11 +117,13 @@ const Hero = () => {
           </motion.h3>
           <div className={styles.mainAbout}>
             <p>
-              I am a full-stack developer with over 2 years of experience
+              I am a full-stack developer with over several years of experience
               working with a wide range of technologies across multiple domains.
             </p>
           </div>
         </div>
+
+
       </div>
     </motion.main>
   );
