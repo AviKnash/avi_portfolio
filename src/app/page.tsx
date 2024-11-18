@@ -22,7 +22,7 @@ export default function Home() {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
 
       const locomotiveScroll = new LocomotiveScroll({
-        autoStart: true
+        autoStart: true,
       });
 
       setTimeout(() => {
