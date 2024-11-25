@@ -62,6 +62,7 @@ export default function Home() {
       rafId = requestAnimationFrame(animateSpotlight);
     };
 
+    //Handle mouse movement
     const handleMouseMove = (e: MouseEvent) => {
       const rect = hero.getBoundingClientRect();
       targetX = e.clientX - rect.left;
