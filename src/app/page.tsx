@@ -60,7 +60,7 @@ export default function Home() {
       hero.style.setProperty("--y", `${currentY}px`);
 
       rafId = requestAnimationFrame(animateSpotlight);
-    }
+    };
 
     //Handle mouse movement
     const handleMouseMove = (e: MouseEvent) => {
