@@ -22,7 +22,7 @@ export default function Text3D({ primary, secondary }: Text3D) {
         ease: "easeInOut"
       }
     }
-  };
+  }
 
   return (
     <div onMouseEnter={() => setShowPointer(false)} className={styles.textContainer}>
