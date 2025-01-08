@@ -21,6 +21,7 @@ import nestjs from "@/public/technologies/nestjs.svg";
 import warboard from "@/public/images/warboard.png";
 import bubble from "@/public/images/bubble.png";
 import portfolio from "@/public/images/portfolio.png";
+import lionbridge from "@/public/images/lionbridge.svg"
 
 export const experience = [
   {
@@ -85,6 +86,25 @@ export const experience = [
       ],
     ],
     descriptionTitles: ["Contributed to Zoral by:"],
+  },
+  {
+    title: "LionBridge",
+    role: "Software Developer",
+    src: lionbridge,
+    color: "#EFE8D3",
+    date: "2020 - 2022",
+    descriptionLists: [
+      [
+      "Utilizing Python/C/JavaScript and Bash scripting for query analysis and improvement to enhance the search experience.",
+      "Managing building and performance enhancements for internal backoffice using React.",
+      "Analyzing and evaluating online maps data using Python to ensure accuracy, relevance, and user-friendliness.",
+      "Expanding on existing location query algorithms, saving several hours of manual testing.",
+      "Designing and enhancing Chinese geoproximity pathfinding for Baidu services using OpenSearch and custom C-based services.",
+      "Contributing to the improvement of localization and cultural relevance in search results.",
+      ]
+    ],
+
+    descriptionTitles: ["Contributed to LionBridge by:"],
   },
 ];
 
