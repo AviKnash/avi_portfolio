@@ -97,7 +97,7 @@ const Projects = () => {
     yMoveCursor.current?.(y);
     xMoveCursorLabel.current?.(x);
     yMoveCursorLabel.current?.(y);
-  };
+  }
 
   const manageModal = (
     active: boolean,
